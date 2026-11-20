@@ -15,9 +15,9 @@ MAX_JUMP = "0.05"   # reject a reading that differs from the last by more than 5
 # Fill these two in after running the commands in README.md
 [[kv_namespaces]]
 binding = "RATES"
-id = "REPLACE_WITH_KV_ID"
+id = "308a8309507b488099b5333ef9608a9c"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "ibriz"
-database_id = "REPLACE_WITH_D1_ID"
+database_id = "1fd7abc8-0f88-445b-9400-a24d51a07e80"
