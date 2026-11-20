@@ -1,10 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ibriz-app",
+  "name": "ibriz",
   "compatibility_date": "2026-11-19",
-  "preview_urls": false,
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
+  "pages_build_output_dir": "./dist"
 }

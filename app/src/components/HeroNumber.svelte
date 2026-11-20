@@ -5,6 +5,7 @@
   const chars = $derived(indian(Math.round(value)).split(''))
 </script>
 
+<span class="sr">{indian(Math.round(value))}</span>
 <span class="hero serif" style="font-size:{size}px" aria-hidden="true">
   {#each chars as c, i (i + ':' + chars.length)}
     {#if c === ','}
@@ -18,6 +19,7 @@
 </span>
 
 <style>
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .hero { display: flex; line-height: 1.08; letter-spacing: -0.02em; font-weight: 400; }
   .dg { display: inline-block; height: 1.08em; overflow: hidden; }
   .col { display: flex; flex-direction: column; line-height: 1.08em; transform: translateY(calc(var(--n) * -1.08em)); animation: roll var(--t-roll) var(--ease) both; }

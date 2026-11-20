@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
     "icons": "node scripts/icons.mjs",
-    "test": "node --experimental-strip-types --test test/*.test.ts"
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "deploy": "npm run build && wrangler pages deploy --branch main"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
