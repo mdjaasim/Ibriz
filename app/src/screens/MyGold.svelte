@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Nudges from '../components/Nudges.svelte'
   import GuideLink from '../components/GuideLink.svelte'
   import Screen from '../components/Screen.svelte'
   import HeroNumber from '../components/HeroNumber.svelte'
@@ -84,6 +85,7 @@
       <p>Your {behind.p.name.toLowerCase()} gets back what you paid at <span class="mono">₹{indian(Math.round(behind.s.breakEvenRate))}</span> a gram.</p>
     </aside>
   {/if}
+  <Nudges />
   {#if dueBackup}
     <aside class="rise nudge" style="--d:.5s"><p>You have no recent backup. <a href={href('backup')} class="gl2">Back up now</a></p></aside>
   {/if}

@@ -3,16 +3,19 @@
 //   /api/rate     latest indicative rate (what the app will read)
 //   /api/history  chart data from the hourly and daily rollups (?range=1d|1w|1m|3m|1y)
 //   /api/config   duty, premium, GST and purity settings for the app
+//   /api/alerts   POST create, /list, /update; DELETE /api/alerts/:id  (anonymous price alerts + Web Push)
 //   /api/health   is the engine alive, how old is the last reading
 //   /api/log.csv  the reading log, for the one-week validation (needs LOG_TOKEN if set)
 //   /api/run      force one update now (needs LOG_TOKEN to be set and passed)
 
 import { runUpdate } from './update.js';
 import { PURITY } from './rate.js';
+import { createAlert, listAlerts, updateAlert, deleteAlert } from './alerts-api.js';
 
 const CORS = {
   'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET, OPTIONS',
+  'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS',
+  'access-control-allow-headers': 'content-type',
 };
 
 const json = (body, status = 200, extra = {}) =>
@@ -119,6 +122,9 @@ function handleConfig(env) {
       gstGold: n(env.GST_GOLD, 0.03),
       gstMaking: n(env.GST_MAKING, 0.05),
       purity: PURITY,
+      vapidPublic: env.VAPID_PUBLIC ?? null,
+      quietStartHour: n(env.QUIET_START_HOUR, 22),
+      quietEndHour: n(env.QUIET_END_HOUR, 7),
     },
     200,
     { 'cache-control': 'public, max-age=300' }
@@ -152,6 +158,24 @@ export default {
 
     if (url.pathname === '/api/history') return handleHistory(env, url);
     if (url.pathname === '/api/config') return handleConfig(env);
+
+    if (url.pathname === '/api/alerts' || url.pathname.startsWith('/api/alerts/')) {
+      try {
+        if (request.method === 'DELETE') {
+          const id = url.pathname.slice('/api/alerts/'.length);
+          return id ? await deleteAlert(env, id, json) : json({ error: 'id required' }, 400);
+        }
+        if (request.method !== 'POST') return json({ error: 'method not allowed' }, 405);
+        if (Number(request.headers.get('content-length') ?? 0) > 4096) return json({ error: 'too large' }, 413);
+        const body = await request.json().catch(() => null);
+        if (url.pathname === '/api/alerts') return await createAlert(env, body, json);
+        if (url.pathname === '/api/alerts/list') return await listAlerts(env, body, json);
+        if (url.pathname === '/api/alerts/update') return await updateAlert(env, body, json);
+        return json({ error: 'not found' }, 404);
+      } catch (err) {
+        return json({ error: 'alerts unavailable' }, 500);
+      }
+    }
 
     if (url.pathname === '/api/log.csv') return handleLog(env, url);
 

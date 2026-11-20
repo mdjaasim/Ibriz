@@ -11,7 +11,14 @@ DUTY = "0.15"       # effective import duty on gold since 13 May 2026
 PREMIUM = "0.03"    # starting guess; the one-week validation will tune this
 GST_GOLD = "0.03"     # GST on gold value (calculator only)
 GST_MAKING = "0.05"   # GST on making charges (calculator only)
-MAX_JUMP = "0.05"   # reject a reading that differs from the last by more than 5%
+MAX_JUMP = "0.05"
+# Alerts (Web Push). The private key is a secret: wrangler secret put VAPID_PRIVATE
+VAPID_PUBLIC = "BMoGBOblaJ2YbNEj9nkmxgPyxrC5Hf2X5AcqQj7MIBEfw6VFciWW9bxEnzjzo7YfI0NCwOgvb1WXEU2A28Y3z4Y"
+VAPID_SUBJECT = "mailto:alerts@example.com"   # contact for push services: change to an address you read
+QUIET_START_HOUR = "22"        # hold alerts overnight, IST (10 pm to 7 am)
+QUIET_END_HOUR = "7"
+MAX_PUSH_PER_CYCLE = "3"       # keeps one update inside the free 10 ms CPU limit
+MAX_ALERTS_PER_DEVICE = "10"   # reject a reading that differs from the last by more than 5%
 # FX_FALLBACK = "90" # optional: used only if every USD/INR source fails and nothing is cached
 
 # Fill these two in after running the commands in README.md

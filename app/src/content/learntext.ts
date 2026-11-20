@@ -4,6 +4,7 @@
 //   {purity:22}                             -> "91.6%"      {fineness:22} -> "916"
 import { rate } from '../lib/rate.svelte'
 import { fineness } from '../lib/calc'
+import { facts } from './guides'
 import { pureGoldFineness } from '../lib/calcconfig'
 
 const trim = (n: number) => String(Math.round(n * 10) / 10)
@@ -16,6 +17,10 @@ export function fill(text: string): string {
       case 'gstGold': return trim(c.gstGold * 100) + '%'
       case 'gstMaking': return trim(c.gstMaking * 100) + '%'
       case 'premium': return trim(c.premium * 100) + '%'
+      case 'dutyBefore': return trim(facts.dutyBefore * 100) + '%'
+      case 'dutySince': return facts.dutySince
+      case 'dutyNotifications': return facts.dutyNotifications
+      case 'dutyNotified': return facts.dutyNotified
       case 'sovereign': return String(c.gramsPerSovereign)
       case 'purity': {
         const p = c.purity[arg ?? ''] ?? 0

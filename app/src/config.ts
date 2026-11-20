@@ -25,6 +25,10 @@ export interface AppConfig {
   backupReminderDays: number // My Gold shows a backup nudge after this many days
   whatIfSpreadPct: number // What if slider runs this far either side of today's rate
   billPhotoMaxPx: number // bill photos are shrunk to this long edge before saving
+  vapidPublic?: string | null // Web Push public key, from /api/config
+  quietStartHour: number // alerts held overnight (IST), from the Worker
+  quietEndHour: number
+  nudgeAvgCostPct: number // My Gold card appears when today's rate is this far from average cost
 }
 
 // Fallback used until the Worker answers (and offline on first run). The Worker's
@@ -51,4 +55,8 @@ export const defaults: AppConfig = {
   backupReminderDays: 30,
   whatIfSpreadPct: 30,
   billPhotoMaxPx: 1280,
+  vapidPublic: null,
+  quietStartHour: 22,
+  quietEndHour: 7,
+  nudgeAvgCostPct: 10,
 }

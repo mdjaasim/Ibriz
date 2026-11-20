@@ -20,3 +20,23 @@ CREATE TABLE IF NOT EXISTS hourly (
 CREATE TABLE IF NOT EXISTS daily (
   bucket INTEGER PRIMARY KEY, open REAL NOT NULL, high REAL NOT NULL, low REAL NOT NULL, close REAL NOT NULL, n INTEGER NOT NULL
 );
+
+-- Price alerts. Anonymous: only a price rule plus a push address, never holdings. The id is a random capability.
+CREATE TABLE IF NOT EXISTS alerts (
+  id          TEXT PRIMARY KEY,
+  endpoint    TEXT NOT NULL,            -- Web Push address of one phone
+  p256dh      TEXT NOT NULL,
+  auth        TEXT NOT NULL,
+  kind        TEXT NOT NULL,            -- price | move | monthly
+  karat       INTEGER,
+  direction   TEXT,                     -- above | below (price alerts)
+  target      REAL,                     -- rupees per gram (price) or percent (move)
+  quiet       INTEGER NOT NULL DEFAULT 1,   -- 1 = hold overnight (quiet hours)
+  city_adjust REAL NOT NULL DEFAULT 0,  -- the person's city adjustment in percent, so targets match what they see
+  city        TEXT NOT NULL DEFAULT '', -- label for the message text only
+  active      INTEGER NOT NULL DEFAULT 1,
+  created     INTEGER NOT NULL,
+  last_fired  INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_alerts_active ON alerts (active);
+CREATE INDEX IF NOT EXISTS idx_alerts_endpoint ON alerts (endpoint);

@@ -18,9 +18,21 @@
       { label: 'City', value: settings.data.city, to: href('citypicker') },
       { label: 'Show first', value: `${settings.data.karat}K · per gram`, act: cycleKarat },
     ] },
+    { h: 'Alerts', rows: [
+      { label: 'Price alerts', to: href('alerts') },
+      { label: 'How alerts arrive', to: href('notifications') },
+    ] },
     { h: 'Tools', rows: [
       { label: 'Calculator', to: href('calculator') },
+      { label: 'Buy in steps', to: href('stagedbuying') },
+      { label: 'Break-even', to: href('breakeven') },
+      { label: 'Goals', to: href('goals') },
       { label: 'Check a hallmark', to: href('hallmark') },
+    ] },
+    { h: 'Learn more', rows: [
+      { label: 'Ways to hold gold', to: href('compare') },
+      { label: 'Gold occasions', to: href('season') },
+      { label: 'What moved the price', to: href('context') },
     ] },
     { h: 'Your gold', rows: [{ label: 'Back up My Gold', to: href('backup') }] },
     { h: 'Display', rows: [{ label: 'Theme', value: themeName[settings.data.theme], to: href('themepicker') }] },

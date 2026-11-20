@@ -3,16 +3,23 @@
   import Charts from './Charts.svelte'
   import MyGold from './MyGold.svelte'
   import Calculator from './Calculator.svelte'
+  import Alerts from './Alerts.svelte'
+  import Compare from './Compare.svelte'
+  import StagedBuying from './StagedBuying.svelte'
+  import BreakEven from './BreakEven.svelte'
+  import Goals from './Goals.svelte'
+  import Season from './Season.svelte'
+  import Context from './Context.svelte'
   import Sheet from '../components/Sheet.svelte'
   import { rate } from '../lib/rate.svelte'
   import { settings } from '../lib/settings.svelte'
   import { href } from '../lib/router.svelte'
-  import { guides, fill, pctText } from '../content/guides'
+  import { guides, fill, pctText, facts } from '../content/guides'
   import { shortDate } from '../lib/format'
 
   let { param = '' }: { param?: string } = $props()
   const g = $derived(guides.find((x) => x.id === param) ?? guides[0])
-  const parents = { main: Main, charts: Charts, mygold: MyGold, calculator: Calculator }
+  const parents = { main: Main, charts: Charts, mygold: MyGold, calculator: Calculator, alerts: Alerts, compare: Compare, stagedbuying: StagedBuying, breakeven: BreakEven, goals: Goals, season: Season, context: Context }
   const Parent = $derived(parents[g.parent])
   const v = $derived({
     karat: settings.data.karat,
@@ -22,6 +29,7 @@
     gst: pctText(rate.config.gstGold),
     makingGst: pctText(rate.config.gstMaking),
     sovereign: rate.config.gramsPerSovereign,
+    dutySince: facts.dutySince,
   })
 </script>
 

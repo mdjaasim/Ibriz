@@ -14,6 +14,7 @@
   import { readingFor } from '../lib/reading'
   import { clockTime, indian, pct, shortDate, signed } from '../lib/format'
   import { lessons } from '../content/lessons'
+  import AlertBanner from '../components/AlertBanner.svelte'
 
   const ranges: { id: Range; label: string }[] = [
     { id: '1d', label: '1D' }, { id: '1w', label: '1W' }, { id: '1m', label: '1M' }, { id: '3m', label: '3M' }, { id: '1y', label: '1Y' },
@@ -68,6 +69,7 @@
     {#if rate.status === 'offline'}
       <div class="banner">You're offline. Showing the rate from {clockTime(rate.latest.updatedAt)}.</div>
     {/if}
+    <AlertBanner kinds={['price', 'move', 'monthly']} />
     <a href={href('ratesheet')} class="hero" aria-label="{karat} karat, {indian(Math.round(rate.perGram(karat)))} rupees per gram. Open details">
       <span class="rise rs" style="--d:.1s">₹</span>
       <HeroNumber value={rate.perGram(karat)} />

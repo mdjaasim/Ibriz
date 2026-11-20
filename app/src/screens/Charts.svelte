@@ -95,6 +95,10 @@
       <div class="stat"><span class="l">Change</span><span class="mono" style="color:var(--{(change ?? 0) < 0 ? 'down' : 'up'})">{(change ?? 0) < 0 ? '−' : '+'}₹{indian(Math.abs(Math.round(change ?? 0)))}</span><span class="d">{first ? (((change ?? 0) / first.v) * 100).toFixed(1).replace('-', '−') + '% since ' + shortDate(first.t) : ''}</span></div>
     </section>
   {/if}
+  <a href={href('context')} class="rise ctxrow">
+    <span>What moved the price</span><span class="ctxv">Dated changes and big days →</span>
+  </a>
+
   <p class="rise note">{karat}K gold, price for 1 gram in {settings.data.city}. {range === '1d' ? 'One point per hour.' : 'One point per day, closing rate.'} Drag across the line to read a day. The top and bottom labels are the highest and lowest in this range; the gold one is now. Past prices, for learning. Not a forecast. Earlier days via <a href="https://goldprice.dev" target="_blank" rel="noopener noreferrer" class="lk">goldprice.dev</a>.</p>
 </Screen>
 
@@ -124,4 +128,6 @@
   .note { margin-top: 12px; font-size: 12px; color: var(--ink-3); }
   .lk { text-decoration: underline; text-underline-offset: 3px; }
   .cov { margin: 10px 0 0; font-size: 12px; color: var(--ink-3); line-height: 1.4; }
+  .ctxrow { display: flex; align-items: center; justify-content: space-between; min-height: 50px; margin-top: 16px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; }
+  .ctxv { font-size: 13px; color: var(--gold-text); }
 </style>

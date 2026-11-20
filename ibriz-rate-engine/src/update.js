@@ -1,6 +1,7 @@
 // One update cycle: fetch gold and USD/INR, compute the Indian rate, log it, publish it.
 
 import { fetchGoldUsd, getUsdInr } from './sources.js';
+import { checkAlerts } from './alerts-api.js';
 import {
   spotInrPerGram,
   retail24PerGram,
@@ -85,5 +86,12 @@ export async function runUpdate(env, now = Date.now()) {
     change24h: changeAgainst(rate24, yesterday),
   };
   await env.RATES.put('latest', JSON.stringify(latest));
+
+  // Alerts never break the rate: any failure here is logged and the update still succeeds.
+  try {
+    await checkAlerts(env, latest, now);
+  } catch (err) {
+    console.error('alerts failed:', String(err));
+  }
   return { ok: true, latest };
 }

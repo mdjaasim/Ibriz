@@ -25,7 +25,7 @@ export const chapters: Chapter[] = [
 const BIS: Source = { label: 'BIS hallmarking FAQ', url: 'https://www.bis.gov.in/hallmarking-overview/hallmarking-faqs/hallmarking-faq' }
 const BANKBAZAAR: Source = { label: 'Tamil Nadu gold rate (BankBazaar)', url: 'https://www.bankbazaar.com/gold-rate-tamil-nadu.html' }
 
-export const lessons: Lesson[] = [
+const raw: Lesson[] = [
   {
     id: 'why-22k', title: 'Why jewellery is 22K, not 24K', group: 'Gold basics', reviewed: null, minutes: 2, figure: 'purity',
     summary: 'Pure gold is too soft to hold a shape. A little copper and silver make it strong enough to wear every day.',
@@ -155,6 +155,16 @@ export const lessons: Lesson[] = [
     ],
   },
   {
+    id: 'useful-alert', title: 'Setting a useful alert', group: 'Buying wisely', reviewed: null, minutes: 2,
+    summary: 'Target or percent move, and how to avoid too many.',
+    body: [
+      'A price alert tells you when a karat reaches a rate you choose. A daily move alert tells you when the price moves by a set percent in one day, up or down.',
+      'Pick a target a few percent away from today. One very close to the current price fires again and again, and soon you stop reading them.',
+      'A price alert fires once and switches itself off, so you only hear about it when it matters. You can turn it back on from the Alerts screen.',
+      'Alerts hold only a price and your phone’s notification address. They never know what you own. On iPhone, notifications need Ibriz added to the Home Screen first.',
+    ],
+  },
+  {
     id: 'forms', title: 'Jewellery, coins and bars', group: 'Other ways to hold gold', reviewed: null, minutes: 2,
     summary: 'Which form suits which goal.',
     body: [
@@ -183,4 +193,64 @@ export const lessons: Lesson[] = [
       'Sovereign Gold Bonds are no longer issued. They can only be bought and sold on the market, and the tax treatment has changed. Check the current rules before acting.',
     ],
   },
+  {
+    id: 'which-form-suits-you', title: 'Which form suits you', group: 'Other ways to hold gold', reviewed: null, minutes: 3,
+    summary: 'Jewellery, coins and bars, ETFs, digital gold and bonds, side by side.',
+    body: [
+      'The same gold can be held in different ways, and each has its own extra costs, protections and ways out. The Ways to hold gold screen lays them side by side.',
+      '[[making-charges|Making charges]] and [[gst|GST]] on jewellery are not returned when you sell. Coins and bars carry a small premium and {gstGold} GST, and cost less to make, so more of what you pay is gold.',
+      'Gold ETFs and funds are regulated by SEBI and held electronically, but need a demat or fund account and carry a small yearly cost. Digital gold sold through apps is not regulated by SEBI or RBI. Sovereign Gold Bonds are no longer issued.',
+      'Ibriz does not say which is better. It depends on whether you want to wear it, keep it, or only follow the price. For learning, not advice.',
+    ],
+    sources: [{ label: 'SEBI warning on digital gold (Moneylife)', url: 'https://www.moneylife.in/article/sebi-warns-against-investing-in-unregulated-digital-gold-and-egold-products/78789.html' }],
+  },
+  {
+    id: 'staged-buying', title: 'Buying in steps', group: 'Buying wisely', reviewed: null, minutes: 2,
+    summary: 'Spreading one budget over several purchases.',
+    body: [
+      'Instead of buying all at once you can split a budget into equal purchases, for example every week or every month. The Buy in steps screen shows how many grams each purchase gets at today’s price.',
+      'The price will be different on each day, so the grams will be too. The screen also shows the same budget at a price a little lower and a little higher, so you can see how much the price matters.',
+      'This is arithmetic, not a forecast. Buying in steps does not promise a lower average price: it only spreads the choice of day.',
+    ],
+  },
+  {
+    id: 'break-even', title: 'Getting back what you paid', group: 'Selling and exchanging', reviewed: null, minutes: 3,
+    summary: 'The rate gold must reach for a piece to return what it cost.',
+    body: [
+      'You paid for the gold, the [[making-charges|making charges]] and [[gst|GST]]. When you sell, a shop usually pays near [[melt-value|melt value]] and keeps a deduction, so the gold must be dearer than when you bought for you to get your money back.',
+      'The Break-even screen gives two rates: where the gold alone matches what you paid, and where it matches after a shop deduction you can change.',
+      'The deduction is an estimate. Ask the shop for its real figure before you decide anything.',
+    ],
+  },
+  {
+    id: 'gold-goals', title: 'Saving towards a goal', group: 'Buying wisely', reviewed: null, minutes: 2,
+    summary: 'A target and a date, turned into a monthly amount.',
+    body: [
+      'A goal is an amount of gold, or a sum of rupees, by a date. Ibriz counts the gold you already hold in My Gold and works out how much to put in each month at today’s price.',
+      'The amount changes when the price changes, so check it from time to time. A goal in rupees is turned into grams at today’s rate, so it shifts too.',
+      'Your goal and your gold stay only on this phone. This is arithmetic, not advice.',
+    ],
+  },
+  {
+    id: 'gold-occasions', title: 'Gold and occasions', group: 'Buying wisely', reviewed: null, minutes: 2,
+    summary: 'Festivals when many families buy, and what Ibriz can and cannot say.',
+    body: [
+      'Many Tamil Nadu families buy gold around Pongal, Tamil New Year, Akshaya Tritiya, Aadi Perukku, Navaratri, Dhanteras and Deepavali. The Gold and occasions screen lists the next ones and how many days away each is.',
+      'Shops often run offers around these days. Compare the whole bill, including [[making-charges|making charges]] and [[gst|GST]], not only the rate.',
+      'Ibriz only shows where today’s price sits against the prices it has saved. It does not predict, and the festival dates come from public calendars that can differ by a day.',
+    ],
+  },
+  {
+    id: 'what-moved-the-price', title: 'What moved the price', group: 'Gold basics', reviewed: null, minutes: 2,
+    summary: 'Policy changes and big days, and how to tell them apart.',
+    body: [
+      'The gold price in rupees can move because the world price moved, because the rupee moved, or because policy changed. The import duty is the clearest policy lever: it rose from {dutyBefore} to {duty} from {dutySince}.',
+      'The What moved the price screen lists dated events like this, and the biggest day-to-day moves in the prices Ibriz has saved. It shows when, not why.',
+      'To tell the causes apart, check the date against the event list, and the rupee rate against the world price.',
+    ],
+    sources: [{ label: 'Gold import duty in India', url: 'https://insightfultrade.com/gold-import-duty-in-india/' }],
+  },
 ]
+
+// Lessons are shown chapter by chapter, in the order written within each chapter.
+export const lessons: Lesson[] = chapters.flatMap((c) => raw.filter((l) => l.group === c.title))
