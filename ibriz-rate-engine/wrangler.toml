@@ -14,7 +14,7 @@ GST_MAKING = "0.05"   # GST on making charges (calculator only)
 MAX_JUMP = "0.05"
 # Alerts (Web Push). The private key is a secret: wrangler secret put VAPID_PRIVATE
 VAPID_PUBLIC = "BMoGBOblaJ2YbNEj9nkmxgPyxrC5Hf2X5AcqQj7MIBEfw6VFciWW9bxEnzjzo7YfI0NCwOgvb1WXEU2A28Y3z4Y"
-VAPID_SUBJECT = "mailto:alerts@example.com"   # contact for push services: change to an address you read
+# VAPID_SUBJECT (contact mailto: for push services) is a secret, not committed: wrangler secret put VAPID_SUBJECT
 QUIET_START_HOUR = "22"        # hold alerts overnight, IST (10 pm to 7 am)
 QUIET_END_HOUR = "7"
 MAX_PUSH_PER_CYCLE = "3"       # keeps one update inside the free 10 ms CPU limit
