@@ -59,7 +59,7 @@ async function handleLog(env, url) {
 // Chart ranges: which rollup table, how far back. Raw readings are never read here.
 const RANGES = {
   '1d': { table: 'hourly', ms: 24 * 3600e3 },
-  '1w': { table: 'hourly', ms: 7 * 24 * 3600e3 },
+  '1w': { table: 'daily', ms: 7 * 24 * 3600e3 },
   '1m': { table: 'daily', ms: 30 * 24 * 3600e3 },
   '3m': { table: 'daily', ms: 91 * 24 * 3600e3 },
   '1y': { table: 'daily', ms: 366 * 24 * 3600e3 },

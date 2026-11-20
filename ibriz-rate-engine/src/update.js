@@ -59,6 +59,15 @@ export async function runUpdate(env, now = Date.now()) {
     .bind(now - DAY_MS)
     .first();
 
+  // Until a full day of live readings exists, "yesterday" is the previous day's close from the daily rollup.
+  let yesterday = reference?.rate24;
+  if (!yesterday) {
+    const prevDay = await env.DB.prepare('SELECT close FROM daily WHERE bucket < ? ORDER BY bucket DESC LIMIT 1')
+      .bind(Math.floor(now / DAY_MS) * DAY_MS)
+      .first();
+    yesterday = prevDay?.close;
+  }
+
   const latest = {
     updatedAt: new Date(now).toISOString(),
     goldPriceTime: gold.updatedAt,
@@ -73,7 +82,7 @@ export async function runUpdate(env, now = Date.now()) {
     premium,
     rate24: Math.round(rate24 * 100) / 100,
     rates: ratesByKarat(rate24),
-    change24h: changeAgainst(rate24, reference?.rate24),
+    change24h: changeAgainst(rate24, yesterday),
   };
   await env.RATES.put('latest', JSON.stringify(latest));
   return { ok: true, latest };
