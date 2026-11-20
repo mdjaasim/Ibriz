@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ibriz · Today, Day theme</title>
+</head>
+<body style="margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;background:#050403">
+<div class="x-dc">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F4F0E6}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-optical-sizing:auto}
+.mono{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.wm .i{position:relative;display:inline-block}
+.wm .i b{position:absolute;left:50%;top:.17em;width:.14em;height:.14em;background:#A47C33;transform:translateX(-50%) rotate(45deg)}
+.rise{opacity:0;animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.dg{display:inline-block;height:1.08em;overflow:hidden;vertical-align:top}
+.dg span{display:flex;flex-direction:column;line-height:1.08em;transform:translateY(calc(var(--n) * -1.08em));animation:roll 1.5s cubic-bezier(.16,1,.3,1) both}
+@keyframes roll{from{transform:translateY(0)}}
+.dg span i{display:flex;justify-content:center;height:1.08em;font-style:normal}
+.dg span i:not(:last-child){contain:inline-size}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.65,0,.35,1) .35s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fade{opacity:0;animation:fade 1.2s ease 1.2s forwards}
+@keyframes fade{to{opacity:1}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s cubic-bezier(.16,1,.3,1) 2s infinite;opacity:0}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(4.2);opacity:0}}
+.tab{height:44px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+@media (prefers-reduced-motion: reduce){.rise,.dg span,.draw,.fade,.pulse{animation:none!important;opacity:1;stroke-dashoffset:0}}
+</style>
+
+<main style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #F4F0E6; color: #17140E; font-family: 'Geist', system-ui, sans-serif; box-sizing: border-box">
+
+<div aria-hidden="true" style="position: absolute; left: -120px; top: 90px; width: 520px; height: 360px; background: radial-gradient(closest-side, rgba(196,150,70,0.16), rgba(196,150,70,0)); pointer-events: none"></div>
+<svg aria-hidden="true" width="390" height="844" style="position: absolute; inset: 0; opacity: 0.05; pointer-events: none; mix-blend-mode: multiply"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"></feColorMatrix></filter><rect width="390" height="844" filter="url(#grain)"></rect></svg>
+
+<header class="rise" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; margin: 54px 24px 0 24px; animation-delay: 0s">
+<div class="serif wm" aria-label="Ibriz" style="font-size: 25px; letter-spacing: 0.01em; line-height: 1"><span class="i">ı<b></b></span>br<span class="i">ı<b></b></span>z</div>
+<div style="display: flex; align-items: center; gap: 4px">
+<a href="CityPicker.html" style="display: flex; align-items: center; gap: 6px; height: 44px; padding: 0 10px; font-size: 14px; color: #57513F">Trichy<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" stroke="#57513F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+<a href="Menu.html" aria-label="Menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: flex-end"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 8h16M8 14h11" stroke="#17140E" stroke-width="1.5" stroke-linecap="round"></path></svg></a>
+</div>
+</header>
+
+<div class="rise" role="tablist" aria-label="Purity" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; margin: 18px 24px 0 24px; animation-delay: .06s">
+<div style="display: flex; gap: 18px">
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 13px; color: #6A6455">24K<i style="width: 4px; height: 4px"></i></button>
+<button type="button" role="tab" aria-selected="true" class="tab mono" style="font-size: 13px; color: #17140E">22K<i style="width: 4px; height: 4px; background: #A47C33; transform: rotate(45deg)"></i></button>
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 13px; color: #6A6455">18K<i style="width: 4px; height: 4px"></i></button>
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 13px; color: #6A6455">14K<i style="width: 4px; height: 4px"></i></button>
+</div>
+<a href="Guide.html" aria-label="What this rate means" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: flex-end"><span style="width: 26px; height: 26px; border-radius: 50%; border: 1px solid rgba(23,20,14,0.18); display: flex; align-items: center; justify-content: center; font-size: 13px; color: #57513F">?</span></a>
+</div>
+
+<a href="RateSheet.html" style="position: relative; margin: 10px 24px 0 22px; display: flex; align-items: flex-start; height: 96px" aria-label="22 karat, 11,481 rupees per gram. Open details">
+<span class="rise" style="font-size: 28px; font-weight: 300; color: #A47C33; margin: 14px 6px 0 0; animation-delay: .1s">₹</span>
+<div class="serif" aria-hidden="true" style="font-size: 86px; font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; display: flex">
+<span class="dg"><span style="--n: 1; animation-delay: .10s"><i>0</i><i>1</i></span></span><span class="dg"><span style="--n: 1; animation-delay: .16s"><i>0</i><i>1</i></span></span><span class="rise" style="font-size: 0.6em; align-self: flex-end; margin: 0 0.03em 0.18em 0.01em; animation-delay: .3s">,</span><span class="dg"><span style="--n: 4; animation-delay: .22s"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i></span></span><span class="dg"><span style="--n: 8; animation-delay: .28s"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i></span></span><span class="dg"><span style="--n: 1; animation-delay: .34s"><i>0</i><i>1</i></span></span>
+</div>
+</a>
+
+<div class="rise" style="position: relative; display: flex; align-items: center; gap: 10px; margin: 6px 24px 0 24px; height: 22px; animation-delay: .5s">
+<span class="mono" style="display: flex; align-items: center; gap: 5px; font-size: 13px; color: #B2463A"><svg width="10" height="12" viewBox="0 0 10 12" fill="none" aria-hidden="true"><path d="M5 1.5v9M1.5 7 5 10.5 8.5 7" stroke="#B2463A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>₹432</span>
+<span class="mono" style="font-size: 13px; color: #B2463A">3.63%</span>
+<span style="font-size: 13px; color: #6A6455">since yesterday</span>
+</div>
+<div class="rise" style="position: relative; margin: 4px 24px 0 24px; font-size: 14px; color: #57513F; animation-delay: .56s"><span class="mono" style="color: #17140E">₹91,847</span> per sovereign, 8 g</div>
+
+<figure style="position: relative; margin: 18px 0 0 0; height: 168px" aria-label="22 karat rate over the last month: high of 13,190 rupees on 10 November, now 11,481">
+<div class="rise" style="position: absolute; left: 152px; top: 0; display: flex; flex-direction: column; gap: 2px; animation-delay: 1.4s">
+<span class="mono" style="font-size: 12px; color: #57513F">₹13,190</span>
+<span style="font-size: 11px; color: #6A6455; letter-spacing: 0.02em">High · 10 Nov</span>
+</div>
+<svg width="390" height="140" viewBox="0 0 390 140" style="position: absolute; left: 0; top: 28px; overflow: visible" aria-hidden="true">
+<defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A47C33" stop-opacity="0.14"></stop><stop offset="1" stop-color="#A47C33" stop-opacity="0"></stop></linearGradient></defs>
+<line x1="0" y1="122" x2="366" y2="122" stroke="#17140E" stroke-opacity="0.14" stroke-dasharray="2 5" class="fade"></line>
+<path class="fade" d="M0.0 40.0 C27.1 35.8 54.2 36.6 81.3 27.5 C88.1 25.2 94.9 19.3 101.7 16.8 C108.4 14.3 115.2 12.6 122.0 12.6 C128.8 12.6 135.6 20.1 142.3 20.1 C149.1 20.1 155.9 10.0 162.7 10.0 C176.2 10.0 189.8 15.8 203.3 22.2 C210.1 25.4 216.9 32.2 223.7 35.2 C237.2 41.2 250.8 43.3 264.3 45.1 C284.7 47.7 305.0 45.3 325.3 57.2 C332.1 61.1 338.9 82.9 345.7 93.7 C352.4 104.5 359.2 112.6 366.0 122.0 L366.0 140 L0 140 Z" fill="url(#area)"></path>
+<path class="draw" pathLength="1" d="M0.0 40.0 C27.1 35.8 54.2 36.6 81.3 27.5 C88.1 25.2 94.9 19.3 101.7 16.8 C108.4 14.3 115.2 12.6 122.0 12.6 C128.8 12.6 135.6 20.1 142.3 20.1 C149.1 20.1 155.9 10.0 162.7 10.0 C176.2 10.0 189.8 15.8 203.3 22.2 C210.1 25.4 216.9 32.2 223.7 35.2 C237.2 41.2 250.8 43.3 264.3 45.1 C284.7 47.7 305.0 45.3 325.3 57.2 C332.1 61.1 338.9 82.9 345.7 93.7 C352.4 104.5 359.2 112.6 366.0 122.0" stroke="#A47C33" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+<circle cx="162.7" cy="10" r="2.2" fill="#F4F0E6" stroke="#57513F" stroke-width="1.2" class="fade"></circle>
+<circle cx="366" cy="122" r="4" fill="#A47C33" class="pulse"></circle>
+<circle cx="366" cy="122" r="3.6" fill="#A47C33" class="fade" style="animation-delay: 2s"></circle>
+</svg>
+</figure>
+
+<div class="rise" style="position: relative; display: flex; align-items: center; justify-content: space-between; margin: 2px 14px 0 14px; animation-delay: .7s">
+<div role="tablist" aria-label="Chart range" style="display: flex">
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #6A6455">1D<i style="width: 14px; height: 1px"></i></button>
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #6A6455">1W<i style="width: 14px; height: 1px"></i></button>
+<button type="button" role="tab" aria-selected="true" class="tab mono" style="font-size: 12px; color: #17140E">1M<i style="width: 14px; height: 1px; background: #A47C33"></i></button>
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #6A6455">3M<i style="width: 14px; height: 1px"></i></button>
+<button type="button" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #6A6455">1Y<i style="width: 14px; height: 1px"></i></button>
+</div>
+<span class="mono" style="display: flex; align-items: center; gap: 7px; font-size: 11px; color: #6A6455; padding-right: 10px"><i style="width: 5px; height: 5px; border-radius: 50%; background: #A47C33"></i>Live · 6:29 pm</span>
+</div>
+
+<div class="rise" style="position: relative; margin: 18px 24px 0 24px; animation-delay: .85s">
+<p class="serif" style="margin: 0; font-size: 25px; line-height: 1.22; font-style: italic; font-weight: 400; letter-spacing: -0.005em; color: #17140E; text-wrap: balance">Gold is cheaper than it has been all month.</p>
+<a href="SeeWhy.html" style="display: inline-flex; align-items: center; gap: 6px; height: 32px; font-size: 13px; color: #7A5A1C">See why<svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h11M8.5 1.5 12 5 8.5 8.5" stroke="#7A5A1C" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+
+<nav class="rise" aria-label="Shortcuts" style="position: relative; margin: 8px 24px 0 24px; animation-delay: .95s">
+<a href="MyGold.html" style="display: flex; align-items: center; justify-content: space-between; height: 50px; border-top: 1px solid rgba(23,20,14,0.09)">
+<span style="font-size: 15px">My Gold</span>
+<span style="display: flex; align-items: center; gap: 10px"><span class="mono" style="font-size: 14px">₹5,51,081</span><span class="mono" style="font-size: 12px; color: #2E7A4A">+39.8%</span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#6A6455" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+</a>
+<a href="Lesson.html" style="display: flex; align-items: center; justify-content: space-between; height: 50px; border-top: 1px solid rgba(23,20,14,0.09); border-bottom: 1px solid rgba(23,20,14,0.09)">
+<span style="font-size: 15px">Learn</span>
+<span style="display: flex; align-items: center; gap: 10px"><span style="font-size: 14px; color: #57513F">Why jewellery is 22K</span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#6A6455" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+</a>
+</nav>
+
+<nav class="rise" aria-label="Main" style="position: absolute; left: 0; right: 0; bottom: 22px; display: flex; justify-content: space-around; padding: 0 18px; animation-delay: 1.05s">
+<a href="#" aria-current="page" class="tab" style="font-size: 13px; color: #17140E; padding: 0 10px">Today<i style="width: 4px; height: 4px; background: #A47C33; transform: rotate(45deg)"></i></a>
+<a href="Charts.html" class="tab" style="font-size: 13px; color: #6A6455; padding: 0 10px">Charts<i style="width: 4px; height: 4px"></i></a>
+<a href="MyGold.html" class="tab" style="font-size: 13px; color: #6A6455; padding: 0 10px">My Gold<i style="width: 4px; height: 4px"></i></a>
+<a href="Learn.html" class="tab" style="font-size: 13px; color: #6A6455; padding: 0 10px">Learn<i style="width: 4px; height: 4px"></i></a>
+</nav>
+</main>
+</div>
+</body>
+</html>

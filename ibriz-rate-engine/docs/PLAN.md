@@ -14,14 +14,14 @@ Distilled from the planning session of 20 November 2026. The original plan lives
 - Prototype **not deployed**; never run against live gold-api.com or the FX source.
 - USD/INR source untested live. Response shape handling in `parseFxResponse` is a best reading of Frankfurter's docs (v1 `rates.INR`, v2 list with `quote: "INR"`).
 - No one-week price log yet; shop premium (`PREMIUM`, currently 0.03) is a starting guess.
-- No app UI, no screens designed, no guides written.
+- No app UI built and no guides written yet. **Design is done and approved (21 Nov 2026): see `design/DESIGN.md` at the repo root** (38 screens, clickable prototype, tokens).
 
 **Next steps, in order**
 1. Deploy the Worker (README steps 2 to 5). Fix whatever the first live run shows, most likely the FX parsing. Check `/api/health` and `/api/rate`.
 2. Run the one-week validation: owner notes 2 or 3 real quotes a day (IBJA 999, a Chennai or Trichy jeweller 22K, before GST and making charges) in `calibration/quotes.csv`; after 7 days run `npm run calibrate -- log.csv calibration/quotes.csv` and set `PREMIUM`.
 3. Decide on a second USD/INR source if daily steps in the rupee value look jumpy.
 4. Add rollups for charts: hourly and daily tables (or views) in D1, a `/api/history?range=` endpoint, and a one-time seed of about 30 days of daily history from goldprice.dev.
-5. Design the four screens (Home, Charts, My Gold, Learn) with the owner before building the full app. Figma is available as an option.
+5. ~~Design the screens with the owner.~~ Done: `design/DESIGN.md`, `design/screens/`, `design/prototype/`. Build from these; ask before changing the design.
 6. Scaffold the PWA on Cloudflare Pages (TypeScript with Svelte or React + Vite; pick one with the owner), installable manifest, service worker, offline cache.
 7. Build the MVP (section 8), writing each guide alongside its feature and sending it to the owner for review.
 

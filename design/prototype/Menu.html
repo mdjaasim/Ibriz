@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ibriz · Menu</title>
+</head>
+<body style="margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;background:#050403">
+<div class="x-dc">
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;family=Anek+Tamil:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A08}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input{font:inherit;color:inherit;background:none;border:0;padding:0;outline:none;width:100%}
+.serif{font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-optical-sizing:auto}
+.mono{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.ta{font-family:'Anek Tamil','Noto Sans Tamil',system-ui,sans-serif}
+.wm .i{position:relative;display:inline-block}
+.wm .i b{position:absolute;left:50%;top:.17em;width:.14em;height:.14em;background:#D4B06A;transform:translateX(-50%) rotate(45deg)}
+.rise{opacity:0;animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fade{opacity:0;animation:fade 1s ease forwards}
+@keyframes fade{to{opacity:1}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.65,0,.35,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.bar{transform-origin:left;animation:bar 1.2s cubic-bezier(.16,1,.3,1) both}
+@keyframes bar{from{transform:scaleX(0)}}
+.sheet{animation:sheet .8s cubic-bezier(.22,1.12,.36,1) both}
+@keyframes sheet{from{transform:translateY(64px);opacity:0}to{transform:none;opacity:1}}
+.scrim{animation:fade .5s ease both;opacity:1}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s cubic-bezier(.16,1,.3,1) 1.6s infinite;opacity:0}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(4);opacity:0}}
+.shimmer{background:linear-gradient(90deg,rgba(241,234,219,0.06) 0%,rgba(241,234,219,0.16) 50%,rgba(241,234,219,0.06) 100%);background-size:200% 100%;animation:shim 1.6s linear infinite}
+@keyframes shim{from{background-position:200% 0}to{background-position:-200% 0}}
+.tab{height:44px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.lbl{margin:0;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#857E70;font-weight:500}
+.chip{height:40px;padding:0 16px;border-radius:20px;border:1px solid rgba(241,234,219,0.09);font-size:14px;color:#A8A090;display:inline-flex;align-items:center;gap:8px}
+.chip.on{border-color:rgba(212,176,106,0.6);color:#F1EADB;background:rgba(212,176,106,0.08)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;background:#D4B06A;color:#14110A;font-size:15px;font-weight:500;letter-spacing:0.01em}
+.btn2{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;border:1px solid rgba(241,234,219,0.16);color:#F1EADB;font-size:15px}
+.row{display:flex;align-items:center;justify-content:space-between;min-height:54px;border-bottom:1px solid rgba(241,234,219,0.09);gap:16px}
+.sw{position:relative;width:46px;height:28px;border-radius:14px;background:rgba(241,234,219,0.14);flex:none}
+.sw i{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#A8A090;transition:transform .3s}
+.sw.on{background:rgba(212,176,106,0.85)}
+.sw.on i{transform:translateX(18px);background:#14110A}
+@media (prefers-reduced-motion: reduce){.rise,.fade,.draw,.bar,.sheet,.scrim,.pulse,.shimmer{animation:none!important;opacity:1;stroke-dashoffset:0;transform:none}}
+</style>
+
+<main style="position: relative; width: 390px; height: 1000px; overflow: hidden; background: #0B0A08; color: #F1EADB; font-family: 'Geist', system-ui, sans-serif">
+
+<header class="rise" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; margin: 54px 24px 0 24px"><div class="serif wm" aria-label="Ibriz" style="font-size: 25px; letter-spacing: 0.01em; line-height: 1"><span class="i">ı<b></b></span>br<span class="i">ı<b></b></span>z</div><a href="Main.html" aria-label="Close" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: flex-end"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" stroke="#F1EADB" stroke-width="1.4" stroke-linecap="round"></path></svg></a></header>
+<div style="position: relative; margin: 6px 24px 0 24px">
+<section class="rise" style="margin-top: 20px; animation-delay: 0.05s"><h2 class="lbl" style="padding-bottom: 8px; border-bottom: 1px solid rgba(241,234,219,0.09)">Rates</h2><a href="CityPicker.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">City</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">Trichy<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="#" class="row" style="min-height: 48px; border-bottom: 0"><span style="font-size: 15px">Show first</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">22K · per gram<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></section>
+<section class="rise" style="margin-top: 20px; animation-delay: 0.08s"><h2 class="lbl" style="padding-bottom: 8px; border-bottom: 1px solid rgba(241,234,219,0.09)">Tools</h2><a href="Calculator.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">Calculator</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="Hallmark.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">Check a hallmark</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="Compare.html" class="row" style="min-height: 48px; border-bottom: 0"><span style="font-size: 15px">Ways to hold gold</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></section>
+<section class="rise" style="margin-top: 20px; animation-delay: 0.11s"><h2 class="lbl" style="padding-bottom: 8px; border-bottom: 1px solid rgba(241,234,219,0.09)">Alerts and gold</h2><a href="Alerts.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">Price alerts</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">3 on<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="Backup.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">Back up My Gold</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">Never<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><div class="row" style="min-height: 48px; border-bottom: 0"><span style="font-size: 15px">Lock with Face ID</span><button type="button" role="switch" aria-checked="false" aria-label="Lock with Face ID" class="sw"><i></i></button></div></section>
+<section class="rise" style="margin-top: 20px; animation-delay: 0.14s"><h2 class="lbl" style="padding-bottom: 8px; border-bottom: 1px solid rgba(241,234,219,0.09)">Display</h2><a href="TodayDay.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">Theme</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">Night<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="TodayTamil.html" class="row" style="min-height: 48px; border-bottom: 0"><span style="font-size: 15px">Language</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090">English<svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></section>
+<section class="rise" style="margin-top: 20px; animation-delay: 0.17s"><h2 class="lbl" style="padding-bottom: 8px; border-bottom: 1px solid rgba(241,234,219,0.09)">About</h2><a href="RateSheet.html" class="row" style="min-height: 48px; "><span style="font-size: 15px">How rates are worked out</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a><a href="Sources.html" class="row" style="min-height: 48px; border-bottom: 0"><span style="font-size: 15px">Sources and terms</span><span style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #A8A090"><svg width="8" height="12" viewBox="0 0 8 12" fill="none" aria-hidden="true"><path d="M2 2l4 4-4 4" stroke="#857E70" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></section>
+</div>
+<p class="rise" style="position: relative; margin: 18px 24px 0 24px; font-size: 12px; line-height: 1.5; color: #857E70; animation-delay: 0.3s">Ibriz shows indicative rates for learning and tracking. It is not financial advice. Version 0.1</p>
+
+</main>
+</div>
+</body>
+</html>

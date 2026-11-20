@@ -36,3 +36,6 @@ Not a gold or engineering expert. Explain in plain language, give exact step-by-
 
 ## Current status
 Rate-engine prototype written and unit-tested, **not yet deployed or run against live services**. The USD/INR source (Frankfurter) was written from its docs and is untested live. See "Status and next steps" in `docs/PLAN.md`.
+
+## Design
+The approved design lives in `../design/` (repo root): `DESIGN.md` is the spec, `screens/` the PNGs, `prototype/` clickable HTML, `tokens.css` the variables. Build exactly that.

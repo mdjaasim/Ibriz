@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ibriz · Your gold across the month</title>
+</head>
+<body style="margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;background:#050403">
+<div class="x-dc">
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;family=Anek+Tamil:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A08}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input{font:inherit;color:inherit;background:none;border:0;padding:0;outline:none;width:100%}
+.serif{font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-optical-sizing:auto}
+.mono{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.ta{font-family:'Anek Tamil','Noto Sans Tamil',system-ui,sans-serif}
+.wm .i{position:relative;display:inline-block}
+.wm .i b{position:absolute;left:50%;top:.17em;width:.14em;height:.14em;background:#D4B06A;transform:translateX(-50%) rotate(45deg)}
+.rise{opacity:0;animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fade{opacity:0;animation:fade 1s ease forwards}
+@keyframes fade{to{opacity:1}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.65,0,.35,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.bar{transform-origin:left;animation:bar 1.2s cubic-bezier(.16,1,.3,1) both}
+@keyframes bar{from{transform:scaleX(0)}}
+.sheet{animation:sheet .8s cubic-bezier(.22,1.12,.36,1) both}
+@keyframes sheet{from{transform:translateY(64px);opacity:0}to{transform:none;opacity:1}}
+.scrim{animation:fade .5s ease both;opacity:1}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s cubic-bezier(.16,1,.3,1) 1.6s infinite;opacity:0}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(4);opacity:0}}
+.shimmer{background:linear-gradient(90deg,rgba(241,234,219,0.06) 0%,rgba(241,234,219,0.16) 50%,rgba(241,234,219,0.06) 100%);background-size:200% 100%;animation:shim 1.6s linear infinite}
+@keyframes shim{from{background-position:200% 0}to{background-position:-200% 0}}
+.tab{height:44px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.lbl{margin:0;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#857E70;font-weight:500}
+.chip{height:40px;padding:0 16px;border-radius:20px;border:1px solid rgba(241,234,219,0.09);font-size:14px;color:#A8A090;display:inline-flex;align-items:center;gap:8px}
+.chip.on{border-color:rgba(212,176,106,0.6);color:#F1EADB;background:rgba(212,176,106,0.08)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;background:#D4B06A;color:#14110A;font-size:15px;font-weight:500;letter-spacing:0.01em}
+.btn2{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;border:1px solid rgba(241,234,219,0.16);color:#F1EADB;font-size:15px}
+.row{display:flex;align-items:center;justify-content:space-between;min-height:54px;border-bottom:1px solid rgba(241,234,219,0.09);gap:16px}
+.sw{position:relative;width:46px;height:28px;border-radius:14px;background:rgba(241,234,219,0.14);flex:none}
+.sw i{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#A8A090;transition:transform .3s}
+.sw.on{background:rgba(212,176,106,0.85)}
+.sw.on i{transform:translateX(18px);background:#14110A}
+@media (prefers-reduced-motion: reduce){.rise,.fade,.draw,.bar,.sheet,.scrim,.pulse,.shimmer{animation:none!important;opacity:1;stroke-dashoffset:0;transform:none}}
+</style>
+
+<main style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0B0A08; color: #F1EADB; font-family: 'Geist', system-ui, sans-serif">
+
+<header class="rise" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; margin: 54px 24px 0 24px; animation-delay: 0s"><div style="display: flex; align-items: center; gap: 6px"><a href="MyGold.html" aria-label="Back" style="width: 44px; height: 44px; display: flex; align-items: center; margin-left: -10px"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" stroke="#F1EADB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><h1 class="serif" style="margin: 0; font-size: 30px; font-weight: 400; letter-spacing: -0.01em">Your gold</h1></div></header>
+<div class="rise" role="tablist" aria-label="Compare" style="position: relative; display: flex; gap: 4px; padding: 4px; margin: 14px 24px 0 24px; border-radius: 16px; border: 1px solid rgba(241,234,219,0.09); animation-delay: 0.04s"><a href="CompareBuys.html" role="tab" aria-selected="false" style="flex: 1; height: 40px; border-radius: 12px; font-size: 14px; display: flex; align-items: center; justify-content: center; color: #857E70">Per piece</a><a href="GoldRanges.html" role="tab" aria-selected="true" style="flex: 1; height: 40px; border-radius: 12px; font-size: 14px; display: flex; align-items: center; justify-content: center; background: #1A1814; color: #F1EADB; box-shadow: inset 0 0 0 1px rgba(241,234,219,0.10)">Ranges</a><a href="WhatIf.html" role="tab" aria-selected="false" style="flex: 1; height: 40px; border-radius: 12px; font-size: 14px; display: flex; align-items: center; justify-content: center; color: #857E70">What if</a></div>
+<div class="rise" style="position: relative; margin: 22px 24px 0 24px; animation-delay: 0.08s">
+<p class="lbl">48 g · this month</p>
+<p class="serif" style="margin: 8px 0 0 0; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em"><span style="font-family: 'Geist', sans-serif; font-size: 18px; font-weight: 300; color: #D4B06A; vertical-align: 21px; margin-right: 4px">₹</span>5<span style="font-size: 0.55em; margin: 0 0.08em 0 0.09em">,</span>51<span style="font-size: 0.55em; margin: 0 0.08em 0 0.09em">,</span>081</p>
+<p style="margin: 8px 0 0 0; font-size: 14px; color: #A8A090">Today, at the month's low. <span class="mono" style="color: #F1EADB">₹82,039</span> below its high.</p>
+</div>
+<div class="rise" style="position: relative; margin: 34px 24px 0 24px; height: 92px; animation-delay: 0.16s" aria-label="Scale from 3.5 to 6.5 lakh: what you paid, then this month's range from low to high">
+<i style="position: absolute; left: 0; right: 0; top: 40px; height: 1px; background: rgba(241,234,219,0.12)"></i>
+<i class="bar" style="position: absolute; left: 229.2px; width: 93.5px; top: 36px; height: 9px; border-radius: 5px; background: rgba(212,176,106,0.28); animation-delay: .3s"></i>
+<i style="position: absolute; left: 45.3px; top: 35px; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #A8A090; background: #0B0A08; box-sizing: border-box"></i>
+<i style="position: absolute; left: 295.7px; top: 32px; width: 1px; height: 17px; background: #A8A090"></i>
+<i style="position: absolute; left: 222.2px; top: 33px; width: 14px; height: 14px; background: #D4B06A; transform: rotate(45deg)"></i>
+<span style="position: absolute; left: 50.3px; transform: translateX(-50%); top: 0; font-size: 11px; color: #857E70; white-space: nowrap">You paid</span>
+<span style="position: absolute; left: 229.2px; transform: translateX(-50%); top: 0; font-size: 11px; color: #D4B06A; white-space: nowrap">Today</span>
+<span style="position: absolute; left: 322.8px; transform: translateX(-80%); top: 0; font-size: 11px; color: #857E70; white-space: nowrap">High</span>
+<span class="mono" style="position: absolute; left: 0; top: 64px; font-size: 10.5px; color: #857E70">₹3.5L</span>
+<span class="mono" style="position: absolute; right: 0; top: 64px; font-size: 10.5px; color: #857E70">₹6.5L</span>
+</div>
+<div style="position: relative; margin: 6px 24px 0 24px; border-top: 1px solid rgba(241,234,219,0.09)">
+<div class="row rise" style="min-height: 56px; animation-delay: 0.24s"><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px">Month high</span><span style="font-size: 12px; color: #857E70">22K at ₹13,190 · 10 Nov</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px"><span class="mono" style="font-size: 15px; ">₹6,33,120</span><span class="mono" style="font-size: 12px; color: #8CC79B">+60.7% on cost</span></span></div>
+<div class="row rise" style="min-height: 56px; animation-delay: 0.3s"><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px">Month average</span><span style="font-size: 12px; color: #857E70">22K at ₹12,704</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px"><span class="mono" style="font-size: 15px; ">₹6,09,792</span><span class="mono" style="font-size: 12px; color: #8CC79B">+54.7% on cost</span></span></div>
+<div class="row rise" style="min-height: 56px; animation-delay: 0.36s"><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px">Today</span><span style="font-size: 12px; color: #857E70">22K at ₹11,481 · the low</span></span><span style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px"><span class="mono" style="font-size: 15px; color: #D4B06A">₹5,51,081</span><span class="mono" style="font-size: 12px; color: #8CC79B">+39.8% on cost</span></span></div>
+</div>
+<p class="rise" style="position: relative; margin: 16px 24px 0 24px; font-size: 13px; line-height: 1.5; color: #857E70; animation-delay: 0.42s">You paid <span class="mono" style="color: #A8A090">₹3,94,086</span> in all, making charges and GST included.</p>
+
+</main>
+</div>
+</body>
+</html>

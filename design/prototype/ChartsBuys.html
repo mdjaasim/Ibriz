@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ibriz · Charts with your buys</title>
+</head>
+<body style="margin:0;min-height:100vh;display:flex;justify-content:center;align-items:flex-start;background:#050403">
+<div class="x-dc">
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&amp;family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400;500&amp;family=Anek+Tamil:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A08}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input{font:inherit;color:inherit;background:none;border:0;padding:0;outline:none;width:100%}
+.serif{font-family:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;font-optical-sizing:auto}
+.mono{font-family:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;font-variant-numeric:tabular-nums}
+.ta{font-family:'Anek Tamil','Noto Sans Tamil',system-ui,sans-serif}
+.wm .i{position:relative;display:inline-block}
+.wm .i b{position:absolute;left:50%;top:.17em;width:.14em;height:.14em;background:#D4B06A;transform:translateX(-50%) rotate(45deg)}
+.rise{opacity:0;animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fade{opacity:0;animation:fade 1s ease forwards}
+@keyframes fade{to{opacity:1}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s cubic-bezier(.65,0,.35,1) .3s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.bar{transform-origin:left;animation:bar 1.2s cubic-bezier(.16,1,.3,1) both}
+@keyframes bar{from{transform:scaleX(0)}}
+.sheet{animation:sheet .8s cubic-bezier(.22,1.12,.36,1) both}
+@keyframes sheet{from{transform:translateY(64px);opacity:0}to{transform:none;opacity:1}}
+.scrim{animation:fade .5s ease both;opacity:1}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s cubic-bezier(.16,1,.3,1) 1.6s infinite;opacity:0}
+@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(4);opacity:0}}
+.shimmer{background:linear-gradient(90deg,rgba(241,234,219,0.06) 0%,rgba(241,234,219,0.16) 50%,rgba(241,234,219,0.06) 100%);background-size:200% 100%;animation:shim 1.6s linear infinite}
+@keyframes shim{from{background-position:200% 0}to{background-position:-200% 0}}
+.tab{height:44px;min-width:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.lbl{margin:0;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#857E70;font-weight:500}
+.chip{height:40px;padding:0 16px;border-radius:20px;border:1px solid rgba(241,234,219,0.09);font-size:14px;color:#A8A090;display:inline-flex;align-items:center;gap:8px}
+.chip.on{border-color:rgba(212,176,106,0.6);color:#F1EADB;background:rgba(212,176,106,0.08)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;background:#D4B06A;color:#14110A;font-size:15px;font-weight:500;letter-spacing:0.01em}
+.btn2{display:flex;align-items:center;justify-content:center;gap:10px;height:54px;border-radius:16px;border:1px solid rgba(241,234,219,0.16);color:#F1EADB;font-size:15px}
+.row{display:flex;align-items:center;justify-content:space-between;min-height:54px;border-bottom:1px solid rgba(241,234,219,0.09);gap:16px}
+.sw{position:relative;width:46px;height:28px;border-radius:14px;background:rgba(241,234,219,0.14);flex:none}
+.sw i{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#A8A090;transition:transform .3s}
+.sw.on{background:rgba(212,176,106,0.85)}
+.sw.on i{transform:translateX(18px);background:#14110A}
+@media (prefers-reduced-motion: reduce){.rise,.fade,.draw,.bar,.sheet,.scrim,.pulse,.shimmer{animation:none!important;opacity:1;stroke-dashoffset:0;transform:none}}
+</style>
+
+<main style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0B0A08; color: #F1EADB; font-family: 'Geist', system-ui, sans-serif">
+
+<header class="rise" style="position: relative; display: flex; align-items: center; justify-content: space-between; height: 44px; margin: 54px 24px 0 24px">
+<h1 class="serif" style="margin: 0; font-size: 30px; font-weight: 400; letter-spacing: -0.01em">Charts</h1>
+<span style="display: flex; align-items: center; gap: 6px">
+<a href="Charts.html" class="chip on" style="height: 34px; padding: 0 12px; font-size: 13px"><i aria-hidden="true" style="flex: none; width: 5px; height: 5px; background: #D4B06A; transform: rotate(45deg)"></i>My buys</a>
+<button type="button" class="mono" style="display: flex; align-items: center; gap: 8px; height: 44px; padding: 0 0 0 10px; font-size: 13px">22K<svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" stroke="#A8A090" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></span>
+</header>
+<div class="rise" role="tablist" aria-label="Chart range" style="position: relative; display: flex; justify-content: space-between; margin: 8px 14px 0 14px; animation-delay: 0.05s">
+<a href="Charts.html" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #857E70">1M<i style="width: 14px; height: 1px; "></i></a><a href="Charts.html" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #857E70">3M<i style="width: 14px; height: 1px; "></i></a><a href="Charts.html" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #857E70">1Y<i style="width: 14px; height: 1px; "></i></a><a href="Charts.html" role="tab" aria-selected="false" class="tab mono" style="font-size: 12px; color: #857E70">3Y<i style="width: 14px; height: 1px; "></i></a><a href="#" role="tab" aria-selected="true" class="tab mono" style="font-size: 12px; color: #F1EADB">All<i style="width: 14px; height: 1px; background: #D4B06A"></i></a>
+</div>
+<div class="rise" style="position: relative; margin: 14px 24px 0 24px; animation-delay: 0.1s">
+<p class="mono" style="margin: 0; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #857E70">Since your first buy · Mar 2023</p>
+<p class="serif" style="margin: 4px 0 0 0; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em"><span style="font-family: 'Geist', sans-serif; font-size: 21px; font-weight: 300; color: #D4B06A; vertical-align: 23px; margin-right: 4px">₹</span>11<span style="font-size: 0.55em; margin: 0 0.08em 0 0.09em">,</span>481</p>
+<p style="margin: 6px 0 0 0; font-size: 14px; color: #A8A090"><span class="mono" style="color: #8CC79B">+109%</span> from <span class="mono" style="color: #F1EADB">₹5,500</span> a gram</p>
+</div>
+<figure style="position: relative; margin: 20px 0 0 0; width: 390px; height: 250px" aria-label="22 karat since 2023, with your three purchases marked">
+<svg aria-hidden="true" width="390" height="240" viewBox="0 0 390 240" style="position: absolute; left: 0; top: 0; overflow: visible">
+<defs><linearGradient id="ab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D4B06A" stop-opacity="0.10"></stop><stop offset="1" stop-color="#D4B06A" stop-opacity="0"></stop></linearGradient></defs>
+<line x1="12" y1="186.2" x2="378" y2="186.2" stroke="#F1EADB" stroke-opacity="0.06"></line><line x1="12" y1="110.5" x2="378" y2="110.5" stroke="#F1EADB" stroke-opacity="0.06"></line><line x1="12" y1="34.9" x2="378" y2="34.9" stroke="#F1EADB" stroke-opacity="0.06"></line>
+<path class="fade" d="M12.0 200.4 C17.3 198.8 22.6 195.6 27.9 195.6 C35.9 195.6 43.8 196.6 51.8 196.6 C62.4 196.6 73.0 195.3 83.6 193.7 C91.6 192.6 99.5 192.3 107.5 189.0 C115.4 185.7 123.4 173.9 131.3 173.9 C139.3 173.9 147.3 176.7 155.2 176.7 C163.2 176.7 171.1 162.7 179.1 161.6 C187.0 160.5 195.0 161.2 203.0 159.7 C210.9 158.2 218.9 143.5 226.8 138.0 C234.8 132.4 242.7 135.3 250.7 126.6 C258.7 118.0 266.6 97.6 274.6 86.0 C282.5 74.3 290.5 65.5 298.4 56.7 C306.4 47.8 314.3 40.3 322.3 33.0 C325.0 30.6 327.6 26.4 330.3 26.4 C335.6 26.4 340.9 34.1 346.2 36.8 C351.5 39.5 356.8 38.4 362.1 42.5 C364.7 44.5 367.4 45.2 370.0 51.9 C372.7 58.6 375.3 72.3 378.0 82.5 L378 240 L12 240 Z" fill="url(#ab)" style="animation-delay: 1.2s"></path>
+<path class="draw" pathLength="1" d="M12.0 200.4 C17.3 198.8 22.6 195.6 27.9 195.6 C35.9 195.6 43.8 196.6 51.8 196.6 C62.4 196.6 73.0 195.3 83.6 193.7 C91.6 192.6 99.5 192.3 107.5 189.0 C115.4 185.7 123.4 173.9 131.3 173.9 C139.3 173.9 147.3 176.7 155.2 176.7 C163.2 176.7 171.1 162.7 179.1 161.6 C187.0 160.5 195.0 161.2 203.0 159.7 C210.9 158.2 218.9 143.5 226.8 138.0 C234.8 132.4 242.7 135.3 250.7 126.6 C258.7 118.0 266.6 97.6 274.6 86.0 C282.5 74.3 290.5 65.5 298.4 56.7 C306.4 47.8 314.3 40.3 322.3 33.0 C325.0 30.6 327.6 26.4 330.3 26.4 C335.6 26.4 340.9 34.1 346.2 36.8 C351.5 39.5 356.8 38.4 362.1 42.5 C364.7 44.5 367.4 45.2 370.0 51.9 C372.7 58.6 375.3 72.3 378.0 82.5" stroke="#D4B06A" stroke-width="1.6" fill="none" stroke-linecap="round"></path>
+<circle cx="378.0" cy="82.5" r="3.6" fill="#D4B06A" class="fade" style="animation-delay: 1.9s"></circle>
+</svg>
+<span class="mono fade" style="position: absolute; left: 14px; top: 170.2px; font-size: 10.5px; color: #857E70; animation-delay: 0.4s">₹6,000</span><span class="mono fade" style="position: absolute; left: 14px; top: 94.5px; font-size: 10.5px; color: #857E70; animation-delay: 0.4s">₹10,000</span><span class="mono fade" style="position: absolute; left: 14px; top: 18.9px; font-size: 10.5px; color: #857E70; animation-delay: 0.4s">₹14,000</span>
+<div class="fade" style="position: absolute; inset: 0; animation-delay: 1.6s">
+<i style="position: absolute; left: 21.9px; top: 189.6px; width: 12px; height: 12px; background: #0B0A08; border: 1.5px solid #D4B06A; transform: rotate(45deg); box-sizing: border-box"></i><span style="position: absolute; left: 27.9px; top: 211.6px; transform: translateX(-8px); font-size: 11px; color: #F1EADB; white-space: nowrap">Necklace</span>
+<i style="position: absolute; left: 197.0px; top: 153.7px; width: 12px; height: 12px; background: #0B0A08; border: 1.5px solid #D4B06A; transform: rotate(45deg); box-sizing: border-box"></i><span style="position: absolute; left: 203.0px; top: 135.7px; transform: translateX(-50%); font-size: 11px; color: #F1EADB; white-space: nowrap">Bangles</span>
+<i style="position: absolute; left: 364.0px; top: 45.9px; width: 12px; height: 12px; background: #0B0A08; border: 1.5px solid #D4B06A; transform: rotate(45deg); box-sizing: border-box"></i><span style="position: absolute; left: 370.0px; top: 67.9px; transform: translateX(calc(-100% - 10px)); font-size: 11px; color: #F1EADB; white-space: nowrap">Coin</span>
+</div>
+<span class="mono fade" style="position: absolute; left: 107.5px; bottom: 0; transform: translateX(-50%); font-size: 10.5px; color: #857E70; animation-delay: 0.4s">2024</span><span class="mono fade" style="position: absolute; left: 203.0px; bottom: 0; transform: translateX(-50%); font-size: 10.5px; color: #857E70; animation-delay: 0.4s">2025</span><span class="mono fade" style="position: absolute; left: 298.4px; bottom: 0; transform: translateX(-50%); font-size: 10.5px; color: #857E70; animation-delay: 0.4s">2026</span>
+</figure>
+<div style="position: relative; margin: 12px 24px 0 24px; border-top: 1px solid rgba(241,234,219,0.09)">
+<div class="row rise" style="min-height: 50px; animation-delay: 0.5s"><span style="display: flex; align-items: center; gap: 12px"><i aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: transparent; transform: rotate(45deg); border: 1.5px solid #D4B06A; box-sizing: border-box"></i><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Wedding necklace</span><span style="font-size: 12px; color: #857E70">Mar 2023 · rate then <span class="mono">₹5,500</span></span></span></span><span class="mono" style="font-size: 13px; color: #8CC79B">+108.7%</span></div>
+<div class="row rise" style="min-height: 50px; animation-delay: 0.56s"><span style="display: flex; align-items: center; gap: 12px"><i aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: transparent; transform: rotate(45deg); border: 1.5px solid #D4B06A; box-sizing: border-box"></i><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Bangles, pair</span><span style="font-size: 12px; color: #857E70">Jan 2025 · rate then <span class="mono">₹7,400</span></span></span></span><span class="mono" style="font-size: 13px; color: #8CC79B">+55.1%</span></div>
+<div class="row rise" style="min-height: 50px; animation-delay: 0.62s"><span style="display: flex; align-items: center; gap: 12px"><i aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: transparent; transform: rotate(45deg); border: 1.5px solid #D4B06A; box-sizing: border-box"></i><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Sovereign coin</span><span style="font-size: 12px; color: #857E70">Oct 2026 · rate then <span class="mono">₹13,100</span></span></span></span><span class="mono" style="font-size: 13px; color: #E8907F">−12.4%</span></div>
+</div>
+<nav class="rise" aria-label="Main" style="position: absolute; left: 0; right: 0; bottom: 22px; display: flex; justify-content: space-around; padding: 0 18px; animation-delay: 0.7s"><a href="Main.html" class="tab" style="font-size: 13px; color: #857E70; padding: 0 10px">Today<i style="width: 4px; height: 4px; "></i></a><a href="Charts.html" aria-current="page" class="tab" style="font-size: 13px; color: #F1EADB; padding: 0 10px">Charts<i style="width: 4px; height: 4px; background: #D4B06A; transform: rotate(45deg)"></i></a><a href="MyGold.html" class="tab" style="font-size: 13px; color: #857E70; padding: 0 10px">My Gold<i style="width: 4px; height: 4px; "></i></a><a href="Learn.html" class="tab" style="font-size: 13px; color: #857E70; padding: 0 10px">Learn<i style="width: 4px; height: 4px; "></i></a></nav>
+
+</main>
+</div>
+</body>
+</html>
