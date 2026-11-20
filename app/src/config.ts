@@ -22,6 +22,9 @@ export interface AppConfig {
   maxPremiumAdjustPct: number // limit of the premium slider, each way
   reading: { lowPct: number; highPct: number } // percentile bands for the one-line reading
   chartDefaultRange: string
+  backupReminderDays: number // My Gold shows a backup nudge after this many days
+  whatIfSpreadPct: number // What if slider runs this far either side of today's rate
+  billPhotoMaxPx: number // bill photos are shrunk to this long edge before saving
 }
 
 // Fallback used until the Worker answers (and offline on first run). The Worker's
@@ -45,4 +48,7 @@ export const defaults: AppConfig = {
   maxPremiumAdjustPct: 3,
   reading: { lowPct: 10, highPct: 90 },
   chartDefaultRange: '1m',
+  backupReminderDays: 30,
+  whatIfSpreadPct: 30,
+  billPhotoMaxPx: 1280,
 }

@@ -11,6 +11,6 @@
 </main>
 
 <style>
-  .screen { position: relative; max-width: 480px; margin: 0 auto; min-height: 100dvh; padding: calc(var(--safe-top) - 10px + env(safe-area-inset-top)) var(--pad) 110px; }
+  .screen { overflow-x: clip; position: relative; max-width: 480px; margin: 0 auto; min-height: 100dvh; padding: calc(var(--safe-top) - 10px + env(safe-area-inset-top)) var(--pad) 110px; }
   .glow::before { content: ''; position: absolute; left: -120px; top: 90px; width: 520px; height: 360px; background: radial-gradient(closest-side, color-mix(in srgb, var(--gold) 10%, transparent), transparent); pointer-events: none; }
 </style>

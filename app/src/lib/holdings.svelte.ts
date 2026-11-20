@@ -13,6 +13,7 @@ export interface Piece {
   boughtAt?: string // ISO date
   shop?: string
   pricePerGram?: number // rate per gram paid
+  makingPct?: number // making charge as a percent of gold value
   makingPaid?: number
   gstPaid?: number
   totalPaid?: number // everything paid, rupees
