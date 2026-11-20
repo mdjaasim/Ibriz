@@ -1,5 +1,8 @@
 <script lang="ts">
   import Main from './Main.svelte'
+  import Charts from './Charts.svelte'
+  import MyGold from './MyGold.svelte'
+  import Calculator from './Calculator.svelte'
   import Sheet from '../components/Sheet.svelte'
   import { rate } from '../lib/rate.svelte'
   import { settings } from '../lib/settings.svelte'
@@ -7,9 +10,14 @@
   import { guides, fill, pctText } from '../content/guides'
   import { shortDate } from '../lib/format'
 
-  const g = guides.find((x) => x.id === 'reading-the-rate')!
+  let { param = '' }: { param?: string } = $props()
+  const g = $derived(guides.find((x) => x.id === param) ?? guides[0])
+  const parents = { main: Main, charts: Charts, mygold: MyGold, calculator: Calculator }
+  const Parent = $derived(parents[g.parent])
   const v = $derived({
     karat: settings.data.karat,
+    city: settings.data.city,
+    premium: pctText(rate.latest?.premium ?? rate.config.premium),
     duty: pctText(rate.latest?.duty ?? rate.config.duty),
     gst: pctText(rate.config.gstGold),
     makingGst: pctText(rate.config.gstMaking),
@@ -17,8 +25,8 @@
   })
 </script>
 
-<Main />
-<Sheet label="Guide: reading the rate">
+<Parent />
+<Sheet label="Guide: {g.title}">
   <p class="label mono top">Guide · 30 seconds</p>
   <h1 class="serif">{g.title}</h1>
   {#each g.steps as s, i}
@@ -29,7 +37,7 @@
   {/each}
   <div class="foot">
     <span>{g.reviewed ? 'Reviewed ' + shortDate(g.reviewed) : 'Draft, not yet reviewed'} · <a href={href('sources')}>Sources</a></span>
-    <a href={href('lesson', 'how-rate-built')} class="gold">Full lesson →</a>
+    {#if g.lesson}<a href={href('lesson', g.lesson)} class="gold">Full lesson →</a>{/if}
   </div>
 </Sheet>
 

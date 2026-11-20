@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { href } from '../lib/router.svelte'
   import { onMount } from 'svelte'
   import Main from './Main.svelte'
   import Sheet from '../components/Sheet.svelte'
@@ -45,7 +46,7 @@
   {:else}
     <p class="none">Ibriz needs a few days of saved prices before it can explain a reading.</p>
   {/if}
-  <p class="foot">For learning, not advice. Based only on Ibriz's own saved prices.</p>
+  <p class="foot">For learning, not advice. Based only on Ibriz's own saved prices. <a href={href('guide', 'how-the-reading-works')} class="how">How this works</a></p>
 </Sheet>
 
 <style>
@@ -65,4 +66,5 @@
   .bars i.on { background: var(--gold); }
   .none, .foot { margin-top: 16px; font-size: 12px; line-height: 1.5; color: var(--ink-3); }
   .none { font-size: 14px; color: var(--ink-2); }
+.how { color: var(--gold-text); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 </style>

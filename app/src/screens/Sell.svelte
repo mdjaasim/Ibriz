@@ -1,4 +1,5 @@
 <script lang="ts">
+  import GuideLink from '../components/GuideLink.svelte'
   import LearnHeader from '../components/LearnHeader.svelte'
   import Screen from '../components/Screen.svelte'
   import CalcSwitch from '../components/CalcSwitch.svelte'
@@ -27,7 +28,9 @@
 </script>
 
 <Screen tab="learn">
-  <LearnHeader title="Calculator" back="menu" />
+  <LearnHeader title="Calculator" back="menu">
+    {#snippet right()}<GuideLink id="what-you-pay" />{/snippet}
+  </LearnHeader>
   <CalcSwitch active="sell" />
 
   {#if holdings.pieces.length}

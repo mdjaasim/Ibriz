@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { href } from '../lib/router.svelte'
   import Main from './Main.svelte'
   import Sheet from '../components/Sheet.svelte'
   import { rate } from '../lib/rate.svelte'
@@ -28,7 +29,7 @@
 <Main />
 <Sheet label="Adjust city premium" top={190}>
   <div class="head">
-    <div><p class="label">{city}</p><h1 class="serif">Shop premium</h1></div>
+    <div><p class="label">{city}</p><h1 class="serif">Shop premium</h1><a href={href('guide', 'shop-premium')} class="what">What is this?</a></div>
     <button type="button" aria-label="Close" class="x" onclick={() => router.back()}>
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="var(--ink-2)" stroke-width="1.4" stroke-linecap="round"/></svg>
     </button>
@@ -73,4 +74,5 @@
   .d { font-size: 12px !important; color: var(--ink-2) !important; }
   .acts { margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
   .reset { height: 44px; font-size: 14px; color: var(--ink-2); }
+.what { display: inline-block; margin-top: 6px; font-size: 13px; color: var(--gold-text); text-decoration: underline; text-underline-offset: 3px; }
 </style>

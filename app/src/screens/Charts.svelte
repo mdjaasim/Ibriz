@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import Screen from '../components/Screen.svelte'
+  import GuideLink from '../components/GuideLink.svelte'
   import ThreadChart from '../components/ThreadChart.svelte'
   import HeroNumber from '../components/HeroNumber.svelte'
   import { rate } from '../lib/rate.svelte'
@@ -44,6 +45,7 @@
   <header class="rise top">
     <h1 class="serif">Charts</h1>
     <span class="acts">
+      <GuideLink id="reading-the-chart" />
       <a href={href('chartsbuys')} class="chip">My buys</a>
       <button type="button" class="chip mono" onclick={nextKarat} aria-label="Change purity, now {karat} karat">{karat}K</button>
     </span>

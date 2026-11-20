@@ -53,6 +53,7 @@ export const lessons: Lesson[] = [
     body: [
       'We start with the world price of gold in US dollars per ounce and convert it to rupees per gram using the dollar-rupee rate.',
       'Then we add the [[import-duty|import duty]], currently {duty}, and a small shop premium, currently {premium}.',
+      'The premium is an estimate, not an official number. You can adjust it for your city under the city name on the Today screen, so Ibriz matches what your jeweller shows.',
       'The result is an indicative rate, not a shop quote. Shops add their own margin, and the day’s board rate can differ. GST and making charges are not included: they appear only in the calculator.',
     ],
   },
@@ -60,9 +61,20 @@ export const lessons: Lesson[] = [
     id: 'why-price-moves', title: 'Why the price moves', group: 'Gold basics', reviewed: null, minutes: 2,
     summary: 'What the change figure is measured against.',
     body: [
-      'The change on the Today screen compares the rate now with the rate about a day ago, from our own saved readings.',
+      'The change on the Today screen compares the rate now with yesterday’s closing rate, from the prices Ibriz has saved.',
       'Gold moves with the world gold price and with the rupee. If the dollar gets dearer against the rupee, gold in rupees rises even when the world price is flat. A change in import duty moves it too.',
+      'The world price itself is pushed around by things like interest rates, the strength of the dollar, central banks buying gold and worry in the news. Nobody can say in advance which will matter next.',
       'One day proves little. Look at the chart over a month before reading anything into it.',
+    ],
+  },
+  {
+    id: 'reading-charts', title: 'Reading the charts', group: 'Gold basics', reviewed: null, minutes: 2,
+    summary: 'What the line, the labels and the reading mean.',
+    body: [
+      'The chart shows the price of 1 gram of the karat you picked. On the day views each point is a few minutes or an hour; on longer views each point is one day’s closing rate.',
+      'The labels on the right are the highest and lowest price in the range, and the gold one is the price now. High, Low and Average under the chart say the same in words.',
+      'The one-line reading on Today compares the price now with this range. It describes the past from prices Ibriz has saved. It is for learning, not advice, and it never says buy or sell.',
+      'One day proves little, and a short history is rough. Check a longer range before reading anything into a move.',
     ],
   },
   {
@@ -106,7 +118,17 @@ export const lessons: Lesson[] = [
     summary: 'A short checklist.',
     body: [
       'Check the hallmark marks. Ask for a bill that lists net weight, rate, making charges and GST separately.',
+      'Ask which rate the shop used and for which karat. Expect it to be a little above the Ibriz rate: the shop adds its own margin.',
       'Keep the bill: it records the [[huid|HUID]] and what you paid, and you will want it when you sell.',
+    ],
+  },
+  {
+    id: 'tracking-gold', title: 'Tracking your gold', group: 'Selling and exchanging', reviewed: null, minutes: 2,
+    summary: 'What My Gold counts, and what it cannot.',
+    body: [
+      'My Gold values each piece at its [[melt-value|melt value]]: net gold weight times today’s rate for its karat.',
+      'The gain or loss is measured against everything you paid, including making charges and GST. A new piece starts behind, because those are not gold you can sell back.',
+      'Your pieces are kept only on this phone. Back them up from the menu, because a cleared browser or a lost phone takes them with it.',
     ],
   },
   {

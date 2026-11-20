@@ -1,4 +1,5 @@
 <script lang="ts">
+  import GuideLink from '../components/GuideLink.svelte'
   import Screen from '../components/Screen.svelte'
   import HeroNumber from '../components/HeroNumber.svelte'
   import Money from '../components/Money.svelte'
@@ -31,9 +32,10 @@
 <Screen tab="mygold" glow>
   <header class="rise top">
     <h1 class="serif">My Gold</h1>
+    <span class="hdr"><GuideLink id="tracking-your-gold" />
     <a href={href('addpiece')} onclick={() => draft.reset()} aria-label="Add a piece" class="plus">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1v14M1 8h14" stroke="var(--gold-text)" stroke-width="1.4" stroke-linecap="round"/></svg>
-    </a>
+    </a></span>
   </header>
   <div class="rise" style="--d:.05s;margin-top:4px"><KeptNote /></div>
 
@@ -122,4 +124,5 @@
   .gl2 { color: var(--gold-text); }
   .cmp { margin-top: 16px; min-height: 58px; }
   .cmp + .cmp { margin-top: 0; border-top: 0; }
+.hdr { display: flex; align-items: center; }
 </style>

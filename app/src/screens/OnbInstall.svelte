@@ -10,7 +10,7 @@
   const steps = [
     { t: 'Tap Share', d: 'The square with an arrow, at the bottom of Safari.' },
     { t: 'Add to Home Screen', d: 'Scroll the list a little to find it.' },
-    { t: 'Open Ibriz from the icon', d: 'Then allow alerts when it asks.' },
+    { t: 'Open Ibriz from the icon', d: 'It now opens full screen, like an app.' },
   ]
 </script>
 
@@ -19,7 +19,7 @@
   <div class="copy">
     <p class="label rise">On iPhone</p>
     <h1 class="serif rise" style="--d:.05s">Keep Ibriz on your Home Screen</h1>
-    <p class="sub rise" style="--d:.1s">It opens like an app, and it is the only way iPhone allows price alerts.</p>
+    <p class="sub rise" style="--d:.1s">It opens full screen like an app, loads faster, and keeps your rate on screen even with a weak signal.</p>
   </div>
   <ol>
     {#each steps as s, i}
