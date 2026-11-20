@@ -11,3 +11,12 @@ CREATE TABLE IF NOT EXISTS readings (
   ok         INTEGER NOT NULL DEFAULT 1   -- 0 if the sanity check rejected this reading
 );
 CREATE INDEX IF NOT EXISTS idx_readings_ts ON readings (ts);
+
+-- Pre-aggregated rows for charts (the app never reads raw 5-minute rows).
+-- bucket = start of the hour / day (UTC ms). Values are 24K rupees per gram.
+CREATE TABLE IF NOT EXISTS hourly (
+  bucket INTEGER PRIMARY KEY, open REAL NOT NULL, high REAL NOT NULL, low REAL NOT NULL, close REAL NOT NULL, n INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS daily (
+  bucket INTEGER PRIMARY KEY, open REAL NOT NULL, high REAL NOT NULL, low REAL NOT NULL, close REAL NOT NULL, n INTEGER NOT NULL
+);

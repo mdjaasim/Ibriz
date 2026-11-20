@@ -1,6 +1,8 @@
 // Ibriz rate engine. Runs on Cloudflare Workers (free plan).
 //   cron   -> fetch price every 5 minutes, log it, publish the latest rate
 //   /api/rate     latest indicative rate (what the app will read)
+//   /api/history  chart data from the hourly and daily rollups (?range=1d|1w|1m|3m|1y)
+//   /api/config   duty, premium, GST and purity settings for the app
 //   /api/health   is the engine alive, how old is the last reading
 //   /api/log.csv  the reading log, for the one-week validation (needs LOG_TOKEN if set)
 //   /api/run      force one update now (needs LOG_TOKEN to be set and passed)
@@ -54,6 +56,55 @@ async function handleLog(env, url) {
   });
 }
 
+// Chart ranges: which rollup table, how far back. Raw readings are never read here.
+const RANGES = {
+  '1d': { table: 'hourly', ms: 24 * 3600e3 },
+  '1w': { table: 'hourly', ms: 7 * 24 * 3600e3 },
+  '1m': { table: 'daily', ms: 30 * 24 * 3600e3 },
+  '3m': { table: 'daily', ms: 91 * 24 * 3600e3 },
+  '1y': { table: 'daily', ms: 366 * 24 * 3600e3 },
+};
+
+async function handleHistory(env, url) {
+  const range = url.searchParams.get('range') ?? '1m';
+  const spec = RANGES[range];
+  if (!spec) return json({ error: 'range must be one of ' + Object.keys(RANGES).join(', ') }, 400);
+  const since = Date.now() - spec.ms;
+  const { results } = await env.DB.prepare(
+    `SELECT bucket, open, high, low, close FROM ${spec.table} WHERE bucket >= ? ORDER BY bucket ASC`
+  )
+    .bind(since)
+    .all();
+  const points = results.map((r) => ({ t: r.bucket, v: r.close, hi: r.high, lo: r.low }));
+  const highs = results.map((r) => r.high);
+  const lows = results.map((r) => r.low);
+  const closes = results.map((r) => r.close);
+  const stat = {
+    high: highs.length ? Math.max(...highs) : null,
+    low: lows.length ? Math.min(...lows) : null,
+    average: closes.length ? closes.reduce((a, b) => a + b, 0) / closes.length : null,
+  };
+  return json({ range, unit: '24K rupees per gram', points, ...stat }, 200, {
+    'cache-control': 'public, max-age=300',
+  });
+}
+
+// Settings the app and its guides read, so numbers are never typed into screens.
+function handleConfig(env) {
+  const n = (v, d) => (v === undefined || v === '' || Number.isNaN(Number(v)) ? d : Number(v));
+  return json(
+    {
+      duty: n(env.DUTY, 0.15),
+      premium: n(env.PREMIUM, 0.03),
+      gstGold: n(env.GST_GOLD, 0.03),
+      gstMaking: n(env.GST_MAKING, 0.05),
+      purity: PURITY,
+    },
+    200,
+    { 'cache-control': 'public, max-age=300' }
+  );
+}
+
 export default {
   async scheduled(_event, env, ctx) {
     ctx.waitUntil(
@@ -78,6 +129,9 @@ export default {
       const ageSeconds = latest ? Math.round((Date.now() - Date.parse(latest.updatedAt)) / 1000) : null;
       return json({ ok: latest !== null && ageSeconds < 900, ageSeconds, readings: count?.n ?? 0 });
     }
+
+    if (url.pathname === '/api/history') return handleHistory(env, url);
+    if (url.pathname === '/api/config') return handleConfig(env);
 
     if (url.pathname === '/api/log.csv') return handleLog(env, url);
 

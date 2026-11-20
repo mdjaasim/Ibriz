@@ -9,7 +9,8 @@ import {
   changeAgainst,
 } from './rate.js';
 
-const DAY_MS = 24 * 60 * 60 * 1000;
+const HOUR_MS = 60 * 60 * 1000;
+const DAY_MS = 24 * HOUR_MS;
 const MAX_REJECTS_IN_A_ROW = 3; // after this many, accept the new level: the market really moved
 
 export async function runUpdate(env, now = Date.now()) {
@@ -40,6 +41,17 @@ export async function runUpdate(env, now = Date.now()) {
     return { ok: false, reason: 'jump too large', rate24 };
   }
   await env.RATES.put('rejects', '0');
+
+  // Keep the pre-aggregated chart rows up to date (accepted readings only).
+  for (const [table, size] of [['hourly', HOUR_MS], ['daily', DAY_MS]]) {
+    const bucket = Math.floor(now / size) * size;
+    await env.DB.prepare(
+      `INSERT INTO ${table} (bucket, open, high, low, close, n) VALUES (?, ?, ?, ?, ?, 1)
+       ON CONFLICT(bucket) DO UPDATE SET high = max(high, excluded.high), low = min(low, excluded.low), close = excluded.close, n = n + 1`
+    )
+      .bind(bucket, rate24, rate24, rate24, rate24)
+      .run();
+  }
 
   const reference = await env.DB.prepare(
     'SELECT rate24 FROM readings WHERE ok = 1 AND ts <= ? ORDER BY ts DESC LIMIT 1'

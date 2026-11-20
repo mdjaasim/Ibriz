@@ -9,6 +9,8 @@ crons = ["*/5 * * * *"]   # every 5 minutes
 [vars]
 DUTY = "0.15"       # effective import duty on gold since 13 May 2026
 PREMIUM = "0.03"    # starting guess; the one-week validation will tune this
+GST_GOLD = "0.03"     # GST on gold value (calculator only)
+GST_MAKING = "0.05"   # GST on making charges (calculator only)
 MAX_JUMP = "0.05"   # reject a reading that differs from the last by more than 5%
 # FX_FALLBACK = "90" # optional: used only if every USD/INR source fails and nothing is cached
 
