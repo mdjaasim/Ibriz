@@ -1,0 +1,16 @@
+{
+  "name": "ibriz",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ibriz: gold rate tracker for Tamil Nadu. Rate engine prototype.",
+  "scripts": {
+    "test": "node --test",
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "calibrate": "node scripts/calibrate.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
