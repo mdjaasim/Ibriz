@@ -1,0 +1,65 @@
+/* Ibriz design tokens. Approved 21 Nov 2026. Night is the default theme. */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Anek+Tamil:wght@400;500;600&display=swap');
+
+:root {
+  /* colour: night */
+  --ground: #0B0A08;        /* app background ("Vault") */
+  --sheet: #13110E;         /* bottom sheets */
+  --raised: #1A1814;        /* segmented selection, inputs, banners */
+  --ink: #F1EADB;           /* primary text ("Ivory") */
+  --ink-2: #A8A090;         /* secondary text ("Stone") */
+  --ink-3: #857E70;         /* tertiary text, labels; passes 4.5:1 on ground */
+  --gold: #D4B06A;          /* the one accent ("Ibriz gold") */
+  --gold-text: #D4B06A;     /* gold used for text */
+  --up: #8CC79B;            /* rises only */
+  --down: #E8907F;          /* falls and destructive only */
+  --line: rgba(241,234,219,0.09);
+  --line-soft: rgba(241,234,219,0.06);
+  --scrim: rgba(5,4,3,0.72);
+  --on-gold: #14110A;       /* text on gold buttons */
+
+  /* type */
+  --font-display: 'Bodoni Moda', 'Anek Tamil', Didot, 'Bodoni 72', Georgia, serif;
+  --font-text: 'Geist', 'Anek Tamil', system-ui, sans-serif;
+  --font-figures: 'Geist Mono', 'Anek Tamil', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* layout */
+  --pad: 24px;              /* screen side padding */
+  --safe-top: 54px;         /* first row starts below the status bar */
+  --nav-bottom: 22px;       /* text tab bar offset from bottom */
+  --row: 50px;              /* standard list row (min); 44px minimum touch target */
+  --radius-sheet: 28px;
+  --radius-btn: 16px;
+  --radius-chip: 20px;
+
+  /* motion */
+  --ease: cubic-bezier(.16, 1, .3, 1);          /* everything: quick start, long settle */
+  --ease-draw: cubic-bezier(.65, 0, .35, 1);    /* line drawing */
+  --ease-spring: cubic-bezier(.22, 1.12, .36, 1); /* sheets */
+  --t-rise: 900ms;          /* fade + 10px rise */
+  --t-roll: 1500ms;         /* hero digits */
+  --t-draw: 1800ms;         /* chart line */
+  --t-sheet: 800ms;
+  --stagger: 60ms;
+}
+
+[data-theme="day"] {
+  --ground: #F4F0E6;
+  --sheet: #FBF8F1;
+  --raised: #ECE6D9;
+  --ink: #17140E;
+  --ink-2: #57513F;
+  --ink-3: #6A6455;
+  --gold: #A47C33;
+  --gold-text: #7A5A1C;
+  --up: #2E7A4A;
+  --down: #B2463A;
+  --line: rgba(23,20,14,0.09);
+  --line-soft: rgba(23,20,14,0.06);
+  --scrim: rgba(23,20,14,0.35);
+  --on-gold: #FFFDF8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-rise: 0ms; --t-roll: 0ms; --t-draw: 0ms; --t-sheet: 0ms; --stagger: 0ms; }
+}
