@@ -23,3 +23,12 @@ export async function fetchHistory(range: Range): Promise<History | null> {
     return load<History | null>('history.' + range, null)
   }
 }
+
+const DAY = 86400000
+export const RANGE_DAYS: Record<Range, number> = { '1d': 1, '1w': 7, '1m': 30, '3m': 91, '1y': 366 }
+
+/** True when the history reaches back about as far as the range asks (a day of slack). */
+export function coversRange(points: { t: number }[], range: Range, now = Date.now()): boolean {
+  if (!points.length) return false
+  return points[0].t <= now - RANGE_DAYS[range] * DAY + 2 * DAY
+}

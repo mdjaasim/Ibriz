@@ -23,7 +23,7 @@
   const done = $derived(items.filter((i) => progress.isChecked(i.id)).length)
 </script>
 
-<Screen>
+<Screen tab="learn">
   <LearnHeader title="Review guides" back="menu" />
   <p class="rise intro" style="--d:.06s">Every guide and lesson in Ibriz, in one list. Open one, read it, then tick it once you are happy with it.</p>
   <p class="rise count mono" style="--d:.1s">{done} of {items.length} checked</p>

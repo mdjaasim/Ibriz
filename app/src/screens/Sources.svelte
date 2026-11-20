@@ -6,7 +6,7 @@
   import { pctText } from '../content/guides'
 </script>
 
-<Screen>
+<Screen tab="main">
   <header class="rise top">
     <button type="button" aria-label="Back" class="back" onclick={() => router.back('menu')}>
       <svg width="10" height="16" viewBox="0 0 10 16" fill="none" aria-hidden="true"><path d="M8 2 2 8l6 6" stroke="var(--ink-2)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -30,7 +30,7 @@
 
   <section class="rise" style="--d:.17s">
     <h2 class="label">Your data</h2>
-    <p>My Gold lives only on this phone. An alert stores a price and a notification address, nothing about what you own.</p>
+    <p>My Gold lives only on this phone.</p>
   </section>
 
   <p class="foot rise" style="--d:.23s">Draft, not yet reviewed by the owner</p>

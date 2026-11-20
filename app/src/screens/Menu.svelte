@@ -31,7 +31,7 @@
   ])
 </script>
 
-<Screen>
+<Screen tab="main">
   <header class="rise top">
     <Wordmark />
     <button type="button" aria-label="Close" class="x" onclick={() => router.back()}>

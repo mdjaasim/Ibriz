@@ -27,7 +27,7 @@
 <svelte:window onscroll={onScroll} />
 <div class="prog" aria-hidden="true"><i style="width:{pctRead}%"></i></div>
 
-<Screen>
+<Screen tab="learn">
   <header class="rise">
     <button type="button" class="back" aria-label="Back" onclick={() => router.back('learn')}>
       <svg width="10" height="16" viewBox="0 0 10 16" fill="none" aria-hidden="true"><path d="M8 2 2 8l6 6" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>

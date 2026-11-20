@@ -16,7 +16,7 @@
   let on = $state([false, false, false])
 </script>
 
-<Screen>
+<Screen tab="learn">
   <LearnHeader title="Check the hallmark" back="menu" />
 
   <div class="lens rise" style="--d:.06s" aria-hidden="true">

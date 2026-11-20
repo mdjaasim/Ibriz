@@ -39,7 +39,7 @@
   const sg = (n: number) => (n < 0 ? '−' : '+')
 </script>
 
-<Screen>
+<Screen tab="mygold">
   <BackBar title="Your gold" to="mygold" />
   <CompareTabs active="whatif" />
 
@@ -54,9 +54,9 @@
     <div class="rise sl" style="--d:.15s">
       <input type="range" {min} {max} step="50" value={r} oninput={(e) => (chosen = Number((e.currentTarget as HTMLInputElement).value))} aria-label="{base}K rate to explore" aria-valuetext="₹{indian(r)} a gram" />
       <div class="marks">
-        {#if avgCost !== null}<span style="left:{pos(avgCost)}%"><span>Your avg cost</span><span class="mono">₹{indian(Math.round(avgCost))}</span></span>{/if}
-        <span style="left:{pos(today)}%;top:30px"><span>Today</span><span class="mono">₹{indian(Math.round(today))}</span></span>
-        {#if worst && worstEq !== null}<span style="left:{pos(worstEq)}%"><span>{worst.p.name} breaks even</span><span class="mono">₹{indian(Math.round(worstEq))}</span></span>{/if}
+        {#if avgCost !== null}<span style="--p:{pos(avgCost)}"><span>Your avg cost</span><span class="mono">₹{indian(Math.round(avgCost))}</span></span>{/if}
+        <span style="--p:{pos(today)};top:30px"><span>Today</span><span class="mono">₹{indian(Math.round(today))}</span></span>
+        {#if worst && worstEq !== null}<span style="--p:{pos(worstEq)}"><span>{worst.p.name} breaks even</span><span class="mono">₹{indian(Math.round(worstEq))}</span></span>{/if}
       </div>
     </div>
 
@@ -92,7 +92,7 @@
   input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; margin-top: -7px; background: var(--gold); transform: rotate(45deg); box-shadow: 0 0 0 8px color-mix(in srgb, var(--gold) 16%, transparent); border: 0; }
   input[type=range]::-moz-range-thumb { width: 14px; height: 14px; background: var(--gold); border: 0; border-radius: 0; transform: rotate(45deg); box-shadow: 0 0 0 8px color-mix(in srgb, var(--gold) 16%, transparent); }
   .marks { position: relative; height: 80px; margin: 0 7px; }
-  .marks > span { position: absolute; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; color: var(--ink-3); white-space: nowrap; top: 0; }
+  .marks > span { position: absolute; left: calc(var(--p) * 1%); transform: translateX(calc(var(--p) * -1%)); display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; color: var(--ink-3); white-space: nowrap; top: 0; }
   .marks .mono { color: var(--ink-2); font-size: 12px; }
   .res { margin-top: 14px; font-size: 14px; color: var(--ink-2); }
   .big2 { font-size: 48px; letter-spacing: -0.02em; color: var(--ink); margin-top: 6px; }

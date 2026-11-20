@@ -10,7 +10,7 @@
   import { settings } from '../lib/settings.svelte'
   import { holdings } from '../lib/holdings.svelte'
   import { href } from '../lib/router.svelte'
-  import { fetchHistory, type History, type Range } from '../lib/history'
+  import { fetchHistory, coversRange, type History, type Range } from '../lib/history'
   import { readingFor } from '../lib/reading'
   import { clockTime, indian, pct, shortDate, signed } from '../lib/format'
   import { lessons } from '../content/lessons'
@@ -29,7 +29,6 @@
   const chg = $derived(rate.change(karat))
   const down = $derived((chg?.abs ?? 0) < 0)
   const reading = $derived(readingFor(hist && { ...hist, points: pts, high: hist.high && hist.high * rate.purity(karat) * rate.cityFactor, low: hist.low && hist.low * rate.purity(karat) * rate.cityFactor }, rate.perGram(karat)))
-  const hi = $derived(pts.length ? pts.reduce((a, b) => (b.v > a.v ? b : a)) : null)
   const tip = $derived(lessons[0])
   const s = $derived(holdings.summary)
   let scrub = $state<{ t: number; v: number } | null>(null)
@@ -89,15 +88,17 @@
     <div class="rise sov" style="--d:.56s"><span class="mono ink"><Money value={Math.round(rate.perSovereign(karat))} size={14} /></span> per sovereign, {rate.config.gramsPerSovereign} g</div>
 
     <figure class="chart" aria-label="{karat} karat rate over the selected range">
-      {#if hi && !scrub}
-        <div class="rise hi" style="--d:1.4s"><span class="mono">₹{indian(Math.round(hi.v))}</span><span>High · {shortDate(hi.t)}</span></div>
-      {/if}
-      {#if scrub}
-        <div class="hi"><span class="mono">₹{indian(Math.round(scrub.v))}</span><span>{shortDate(scrub.t)}</span></div>
-      {/if}
-      {#key range + ':' + pts.length}<ThreadChart points={pts} height={140} live={rate.status === 'live'} onscrub={(p) => (scrub = p)} />{/key}
+      <figcaption class="cap rise" style="--d:.6s">
+        {#if scrub}
+          <span class="mono">₹{indian(Math.round(scrub.v))}</span> on {range === '1d' ? clockTime(scrub.t) : shortDate(scrub.t)}
+        {:else}
+          {karat}K gold, price for 1 gram in {settings.data.city}. {range === '1d' ? 'One point per hour, today.' : 'One point per day, closing rate.'}
+        {/if}
+      </figcaption>
+      {#key range + ':' + pts.length}<ThreadChart points={pts} height={170} intraday={range === '1d'} live={rate.status === 'live'} onscrub={(p) => (scrub = p)} />{/key}
     </figure>
 
+{#if hist && pts.length > 1 && !coversRange(hist.points, range)}<p class="cov">History so far starts {shortDate(hist.points[0].t)}. Ibriz keeps what it collects, so longer ranges fill in over time.</p>{/if}
     <div class="rise rangebar" style="--d:.7s">
       <div role="tablist" aria-label="Chart range" class="ranges">
         {#each ranges as r}
@@ -155,10 +156,10 @@
   .since { font-size: 13px; color: var(--ink-3); }
   .sov { margin-top: 4px; font-size: 14px; color: var(--ink-2); }
   .ink { color: var(--ink); }
-  .chart { position: relative; margin: 18px calc(var(--pad) * -1) 0; height: 168px; }
-  .hi { position: absolute; left: 152px; top: 0; display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--ink-3); }
-  .hi .mono { font-size: 12px; color: var(--ink-2); }
-  .chart :global(.wrap) { margin-top: 28px; }
+  .chart { position: relative; margin: 14px 0 0; }
+  .cov { font-size: 12px; color: var(--ink-3); margin: 4px 0 0; line-height: 1.4; }
+  .cap { font-size: 12px; color: var(--ink-3); margin-bottom: 8px; min-height: 16px; }
+  .cap .mono { color: var(--ink); }
   .rangebar { display: flex; align-items: center; justify-content: space-between; margin: 2px -10px 0; }
   .live { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--ink-3); padding-right: 10px; }
   .live i { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }

@@ -38,7 +38,7 @@
   $effect(() => { if (guard) router.go('addpiece') })
 </script>
 
-<Screen>
+<Screen tab="mygold">
   <BackBar to="addpiece">
     {#snippet right()}<span class="label">Step 2 of 2</span>{/snippet}
   </BackBar>

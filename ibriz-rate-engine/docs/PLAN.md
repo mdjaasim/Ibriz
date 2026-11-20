@@ -100,6 +100,7 @@ price sources -> Rate engine (Worker, cron 5 min) -> Storage (KV latest, D1 hist
 - PWA served from Cloudflare Pages. Phones never call price sources or hold keys; everyone reads the same cached rate.
 - Free limits: Workers 100,000 requests/day, 10 ms CPU, 50 subrequests, 5 cron triggers; KV 100,000 reads and 1,000 writes/day; D1 5 GB and 5 million rows read/day (enforced since 1 Sep 2026); FCM free at any volume. 288 cron runs/day and 288 KV writes/day are far inside limits.
 - **Rule:** charts read pre-aggregated hourly and daily rows (about 720 rows for 30 days hourly), cached; raw 5-minute reads (about 8,640 a month) would use up the daily D1 allowance after roughly 580 chart loads.
+- **Exception:** the 1D chart reads the last 24 hours of 5-minute readings (at most 288 rows, edge-cached 60 s). Every longer range uses the rollups. The last 29 days of daily history were backfilled on 20 Nov 2026 from goldprice.dev (gold) and Frankfurter (USD/INR) with `scripts/backfill.mjs`; those rows have `n = 0`.
 - Fallbacks: backup source, keep serving last good value marked "delayed", reject a reading that jumps more than `MAX_JUMP`.
 - Web Push encryption and fan-out inside the 10 ms CPU limit needs checking when alerts are built; FCM is the likely route.
 

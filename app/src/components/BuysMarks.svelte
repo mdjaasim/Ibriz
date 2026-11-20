@@ -4,7 +4,7 @@
   interface M { t: number; label: string }
   let { points, marks, height = 200 }: { points: P[]; marks: M[]; height?: number } = $props()
   let w = $state(390)
-  const padR = 24, padT = 14, padB = 18
+  const padR = 62, padT = 12, padB = 24
   const min = $derived(Math.min(...points.map((p) => p.v)))
   const max = $derived(Math.max(...points.map((p) => p.v)))
   const xy = (i: number, v: number) => [(i / (points.length - 1)) * (w - padR), padT + (1 - (v - min) / (max - min || 1)) * (height - padT - padB)] as const

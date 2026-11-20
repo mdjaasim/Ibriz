@@ -17,6 +17,22 @@
 
   const Current = $derived(screens[router.route.id === 'today' ? 'main' : router.route.id] ?? screens['main'])
 
+  // Play the intro animation once: on the first Today. Any later navigation (tab switch, back) is still.
+  let seenToday = false
+  $effect(() => {
+    const id = router.route.id
+    if (document.documentElement.dataset.still) return
+    if (id === 'welcome' || id.startsWith('onb') || !settings.data.onboarded) return
+    if (!seenToday) {
+      if (id === 'main' || id === 'today') {
+        seenToday = true
+        setTimeout(() => (document.documentElement.dataset.still = '1'), 4000)
+      }
+      return
+    }
+    document.documentElement.dataset.still = '1'
+  })
+
   onMount(() => {
     rate.start()
     holdings.init()

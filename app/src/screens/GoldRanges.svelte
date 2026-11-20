@@ -44,7 +44,7 @@
   )
 </script>
 
-<Screen>
+<Screen tab="mygold">
   <BackBar title="Your gold" to="mygold" />
   <CompareTabs active="goldranges" />
 

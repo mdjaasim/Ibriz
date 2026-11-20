@@ -26,7 +26,7 @@
   const diff = $derived(piece?.totalPaid ? r.net - piece.totalPaid : null)
 </script>
 
-<Screen>
+<Screen tab="learn">
   <LearnHeader title="Calculator" back="menu" />
   <CalcSwitch active="sell" />
 

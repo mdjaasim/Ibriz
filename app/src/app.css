@@ -34,6 +34,9 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .shimmer { background: linear-gradient(90deg, var(--line-soft), var(--line), var(--line-soft)); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; border-radius: 6px; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 
+/* The intro plays once, the first time Today opens. After that nothing re-animates (see App.svelte). */
+[data-still] .rise, [data-still] .fade, [data-still] .draw, [data-still] .col { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; }
+
 @media (prefers-reduced-motion: reduce) {
   .rise, .fade { animation: none; opacity: 1; }
   .shimmer { animation: none; }

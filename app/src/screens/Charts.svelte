@@ -6,7 +6,7 @@
   import { rate } from '../lib/rate.svelte'
   import { settings } from '../lib/settings.svelte'
   import { href } from '../lib/router.svelte'
-  import { fetchHistory, type History, type Range } from '../lib/history'
+  import { fetchHistory, coversRange, type History, type Range } from '../lib/history'
   import { indian, shortDate, clockTime } from '../lib/format'
 
   const ranges: { id: Range; label: string; words: string }[] = [
@@ -77,10 +77,13 @@
     {:else if pts.length < 2}
       <p class="none">Not enough history yet for this range. The log fills in as the engine runs; longer ranges need more days.</p>
     {:else}
-      {#key range + ':' + pts.length}<ThreadChart points={pts} height={180} live={rate.status === 'live'} onscrub={(p) => (scrub = p)} />{/key}
-      <div class="axis mono"><span>{shortDate(pts[0].t)}</span><span>Today</span></div>
+      {#key range + ':' + pts.length}<ThreadChart points={pts} height={200} intraday={range === '1d'} live={rate.status === 'live'} onscrub={(p) => (scrub = p)} />{/key}
     {/if}
   </figure>
+
+  {#if hist && pts.length > 1 && !coversRange(hist.points, range)}
+    <p class="cov">History so far starts {shortDate(hist.points[0].t)}. Ibriz keeps what it collects, so longer ranges fill in over time.</p>
+  {/if}
 
   {#if pts.length > 1}
     <section class="rise stats" aria-label="Range summary">
@@ -90,7 +93,7 @@
       <div class="stat"><span class="l">Change</span><span class="mono" style="color:var(--{(change ?? 0) < 0 ? 'down' : 'up'})">{(change ?? 0) < 0 ? '−' : '+'}₹{indian(Math.abs(Math.round(change ?? 0)))}</span><span class="d">{first ? (((change ?? 0) / first.v) * 100).toFixed(1).replace('-', '−') + '% since ' + shortDate(first.t) : ''}</span></div>
     </section>
   {/if}
-  <p class="rise note">Past prices, for learning. Not a forecast.</p>
+  <p class="rise note">{karat}K gold, price for 1 gram in {settings.data.city}. {range === '1d' ? 'One point per hour.' : 'One point per day, closing rate.'} Drag across the line to read a day. The top and bottom labels are the highest and lowest in this range; the gold one is now. Past prices, for learning. Not a forecast. Earlier days via <a href="https://goldprice.dev" target="_blank" rel="noopener noreferrer" class="lk">goldprice.dev</a>.</p>
 </Screen>
 
 <style>
@@ -108,8 +111,7 @@
   .big { display: flex; align-items: flex-start; height: 64px; margin-top: 6px; }
   .rs { font-size: 24px; font-weight: 300; color: var(--gold-text); margin: 8px 5px 0 0; }
   .sub { margin-top: 6px; font-size: 14px; color: var(--ink-2); }
-  .chart { margin: 20px calc(var(--pad) * -1) 0; min-height: 200px; position: relative; }
-  .axis { display: flex; justify-content: space-between; padding: 6px var(--pad) 0; font-size: 11px; color: var(--ink-3); }
+  .chart { margin: 20px 0 0; min-height: 200px; position: relative; }
   .none { margin: 40px var(--pad); font-size: 14px; color: var(--ink-2); line-height: 1.5; }
   .stats { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; }
   .stat { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid var(--line); }
@@ -118,4 +120,6 @@
   .stat .mono { font-size: 17px; }
   .d { font-size: 12px; color: var(--ink-3); }
   .note { margin-top: 12px; font-size: 12px; color: var(--ink-3); }
+  .lk { text-decoration: underline; text-underline-offset: 3px; }
+  .cov { margin: 10px 0 0; font-size: 12px; color: var(--ink-3); line-height: 1.4; }
 </style>

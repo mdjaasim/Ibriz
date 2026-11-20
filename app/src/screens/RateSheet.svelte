@@ -39,7 +39,7 @@
   </div>
 
   <div role="table" aria-label="Rate by purity" class="tbl">
-    <div role="row" class="row head3 label"><span role="columnheader">Purity</span><span role="columnheader" class="r">Rate</span><span role="columnheader" class="r">Since yesterday</span></div>
+    <div role="row" class="row head3 label"><span role="columnheader">Purity</span><span role="columnheader" class="r">Rate</span><span role="columnheader" class="r">Today vs yesterday</span></div>
     {#each rate.config.karats as k}
       {@const c = rate.change(k)}
       <div role="row" class="row cols">

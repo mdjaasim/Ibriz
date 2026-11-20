@@ -70,7 +70,7 @@
     {:else if pts.length < 2}
       <p class="none">Not enough history yet for this range.</p>
     {:else}
-      {#key range + ':' + pts.length}<ThreadChart points={pts} height={200} live={rate.status === 'live'} />{/key}
+      {#key range + ':' + pts.length}<ThreadChart points={pts} height={200} intraday={range === '1d'} live={rate.status === 'live'} />{/key}
       <BuysMarks points={pts} {marks} height={200} />
     {/if}
   </figure>
@@ -104,7 +104,7 @@
   .big { display: flex; align-items: flex-start; height: 64px; margin-top: 6px; }
   .rs { font-size: 24px; font-weight: 300; color: var(--gold-text); margin: 8px 5px 0 0; }
   .sub { margin-top: 6px; font-size: 14px; color: var(--ink-2); }
-  .chart { position: relative; margin: 20px calc(var(--pad) * -1) 0; height: 224px; }
+  .chart { position: relative; margin: 20px 0 0; height: 224px; }
   .help { font-size: 12px; color: var(--ink-3); margin-top: 8px; }
   .list { margin-top: 14px; }
   .nm { display: flex; flex-direction: column; gap: 3px; }

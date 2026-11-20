@@ -12,6 +12,7 @@ export interface Guide {
 export const facts = {
   dutySince: '13 May 2026', // effective date of the current import duty
   sources: [
+    { name: 'Past prices (first 30 days)', how: 'Daily closes from', link: 'goldprice.dev', url: 'https://goldprice.dev' },
     { name: 'World gold price', how: 'Every 5 minutes from', link: 'gold-api.com', url: 'https://gold-api.com' },
     { name: 'Rupee rate', how: 'Daily reference rate from', link: 'Frankfurter', url: 'https://frankfurter.dev' },
   ],

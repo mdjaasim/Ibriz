@@ -43,7 +43,7 @@
 
   <div class="would">
     <span>{karat}K would show</span>
-    <span class="r"><span class="mono">₹{indian(Math.round(shown))}</span><span class="mono d">{signedRupees(Math.round(shown - unadjusted))}</span></span>
+    <span class="r"><span class="mono">₹{indian(Math.round(shown))}</span>{#if Math.round(shown - unadjusted) !== 0}<span class="mono d">{signedRupees(Math.round(shown - unadjusted))}</span>{/if}</span>
   </div>
 
   <div class="acts">

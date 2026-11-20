@@ -29,7 +29,7 @@
   const cur = (n: number) => '₹' + indian(Math.abs(Math.round(n)))
 </script>
 
-<Screen>
+<Screen tab="mygold">
   <BackBar title="Your gold" to="mygold" />
   <CompareTabs active="comparebuys" />
   <div class="rise intro" style="--d:.1s">

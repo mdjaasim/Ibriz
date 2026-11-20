@@ -19,7 +19,7 @@
   $effect(() => { if (holdings.ready && !piece) router.go('mygold') })
 </script>
 
-<Screen glow>
+<Screen tab="mygold" glow>
   <BackBar to="mygold">
     {#snippet right()}<button type="button" class="edit" onclick={edit}>Edit</button>{/snippet}
   </BackBar>

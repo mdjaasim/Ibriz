@@ -70,6 +70,26 @@ async function handleHistory(env, url) {
   const spec = RANGES[range];
   if (!spec) return json({ error: 'range must be one of ' + Object.keys(RANGES).join(', ') }, 400);
   const since = Date.now() - spec.ms;
+  if (range === '1d') {
+    // One day of 5-minute readings: at most 288 rows, cached for a minute, so it stays far inside the
+    // free D1 limit. Longer ranges always use the rollups.
+    const { results: raw } = await env.DB.prepare('SELECT ts, rate24 FROM readings WHERE ok = 1 AND ts >= ? ORDER BY ts ASC LIMIT 300')
+      .bind(since)
+      .all();
+    const vals = raw.map((r) => r.rate24);
+    return json(
+      {
+        range,
+        unit: '24K rupees per gram',
+        points: raw.map((r) => ({ t: r.ts, v: r.rate24, hi: r.rate24, lo: r.rate24 })),
+        high: vals.length ? Math.max(...vals) : null,
+        low: vals.length ? Math.min(...vals) : null,
+        average: vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : null,
+      },
+      200,
+      { 'cache-control': 'public, max-age=60' }
+    );
+  }
   const { results } = await env.DB.prepare(
     `SELECT bucket, open, high, low, close FROM ${spec.table} WHERE bucket >= ? ORDER BY bucket ASC`
   )

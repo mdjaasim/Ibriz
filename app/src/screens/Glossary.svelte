@@ -17,7 +17,7 @@
   })
 </script>
 
-<Screen>
+<Screen tab="learn">
   <LearnHeader title="Glossary" back="learn" />
   <label class="search rise" style="--d:.06s">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="var(--ink-3)" stroke-width="1.3"/><path d="m11 11 3.5 3.5" stroke="var(--ink-3)" stroke-width="1.3" stroke-linecap="round"/></svg>

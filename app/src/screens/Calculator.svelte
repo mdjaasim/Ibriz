@@ -26,7 +26,7 @@
   const prefill = $derived(`karat=${karat}&weight=${weight}&paid=${Math.round(r.total)}&making=${Math.round(r.making)}&gst=${Math.round(r.gstGold + r.gstMaking)}`)
 </script>
 
-<Screen>
+<Screen tab="learn">
   <LearnHeader title="Calculator" back="menu" />
   <CalcSwitch active="calculator" />
 
